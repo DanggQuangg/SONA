@@ -15,7 +15,7 @@ namespace SONA
         public SONA()
         {
             InitializeComponent();
-            Login login = new Login(this);
+            SignUp login = new SignUp(this);
             pnLogin.Controls.Add(login);
         }
     }

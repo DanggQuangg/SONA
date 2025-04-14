@@ -13,15 +13,10 @@ namespace SONA
     public partial class Login : UserControl
     {
         SONA S;
-        public Login(SONA s )
+        public Login(SONA s)
         {
             InitializeComponent();
             S = s;
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -29,19 +24,12 @@ namespace SONA
 
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        private void lbDangky_Click(object sender, EventArgs e)
         {
+            SignUp l= new SignUp(S);
+            S.pnLogin.Controls.Clear();
+            S.pnLogin.Controls.Add(l);
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            S.Close();  
         }
     }
 }

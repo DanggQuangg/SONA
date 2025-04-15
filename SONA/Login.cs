@@ -31,5 +31,13 @@ namespace SONA
             S.pnLogin.Controls.Add(l);
 
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            Home h = new Home(S);
+            S.pnMain.Controls.Clear();
+            S.pnMain.Controls.Add(h);
+
+        }
     }
 }

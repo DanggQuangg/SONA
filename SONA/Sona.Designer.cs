@@ -28,31 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SONA));
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.pnLogin = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel1.SuspendLayout();
+            this.pnMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // guna2Elipse1
+            // pnMain
             // 
-            this.guna2Elipse1.BorderRadius = 10;
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BackgroundImage = global::SONA.Properties.Resources.LoginBGR;
-            this.guna2Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.guna2Panel1.Controls.Add(this.pnLogin);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(1771, 1012);
-            this.guna2Panel1.TabIndex = 0;
+            this.pnMain.BackColor = System.Drawing.Color.Transparent;
+            this.pnMain.BackgroundImage = global::SONA.Properties.Resources.LoginBGR;
+            this.pnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnMain.Controls.Add(this.pnLogin);
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(0, 0);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.ShadowDecoration.Parent = this.pnMain;
+            this.pnMain.Size = new System.Drawing.Size(1771, 1012);
+            this.pnMain.TabIndex = 0;
+            this.pnMain.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // pnLogin
             // 
@@ -67,22 +61,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1771, 1012);
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.pnMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SONA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SONA";
-            this.guna2Panel1.ResumeLayout(false);
+            this.pnMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2Panel pnLogin;
+        public Guna.UI2.WinForms.Guna2Panel pnMain;
     }
 }
 

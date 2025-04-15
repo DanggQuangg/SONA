@@ -41,11 +41,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.lbDangky = new System.Windows.Forms.Label();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.lbDangky = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.SuspendLayout();
             // 
             // label2
@@ -201,6 +201,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(580, 64);
             this.guna2Button3.TabIndex = 11;
             this.guna2Button3.Text = "Đăng nhập";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // label7
             // 
@@ -213,6 +214,24 @@
             this.label7.Size = new System.Drawing.Size(40, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "Hiện";
+            // 
+            // lbDangky
+            // 
+            this.lbDangky.AutoSize = true;
+            this.lbDangky.BackColor = System.Drawing.Color.Transparent;
+            this.lbDangky.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbDangky.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDangky.Location = new System.Drawing.Point(396, 726);
+            this.lbDangky.Name = "lbDangky";
+            this.lbDangky.Size = new System.Drawing.Size(62, 18);
+            this.lbDangky.TabIndex = 14;
+            this.lbDangky.Text = "Đăng kí ";
+            this.lbDangky.Click += new System.EventHandler(this.lbDangky_Click);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 24;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // guna2Panel1
             // 
@@ -266,25 +285,7 @@
             this.guna2Button2.TabIndex = 6;
             this.guna2Button2.Text = "Đăng kí bằng Facebook";
             // 
-            // lbDangky
-            // 
-            this.lbDangky.AutoSize = true;
-            this.lbDangky.BackColor = System.Drawing.Color.Transparent;
-            this.lbDangky.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbDangky.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDangky.Location = new System.Drawing.Point(396, 726);
-            this.lbDangky.Name = "lbDangky";
-            this.lbDangky.Size = new System.Drawing.Size(62, 18);
-            this.lbDangky.TabIndex = 14;
-            this.lbDangky.Text = "Đăng kí ";
-            this.lbDangky.Click += new System.EventHandler(this.lbDangky_Click);
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 24;
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // Info
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -305,7 +306,7 @@
             this.Controls.Add(this.guna2Separator2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Separator1);
-            this.Name = "Info";
+            this.Name = "Login";
             this.Size = new System.Drawing.Size(704, 853);
             this.ResumeLayout(false);
             this.PerformLayout();

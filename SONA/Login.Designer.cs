@@ -44,7 +44,7 @@
             this.lbDangky = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLoginGoogle = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
@@ -245,25 +245,26 @@
             this.guna2Panel1.Size = new System.Drawing.Size(24, 24);
             this.guna2Panel1.TabIndex = 13;
             // 
-            // guna2Button1
+            // btnLoginGoogle
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderRadius = 30;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::SONA.Properties.Resources.Google;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(28, 28);
-            this.guna2Button1.Location = new System.Drawing.Point(124, 180);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(454, 64);
-            this.guna2Button1.TabIndex = 7;
-            this.guna2Button1.Text = "Đăng kí bằng Google";
+            this.btnLoginGoogle.Animated = true;
+            this.btnLoginGoogle.BorderRadius = 30;
+            this.btnLoginGoogle.BorderThickness = 1;
+            this.btnLoginGoogle.CheckedState.Parent = this.btnLoginGoogle;
+            this.btnLoginGoogle.CustomImages.Parent = this.btnLoginGoogle;
+            this.btnLoginGoogle.FillColor = System.Drawing.Color.Transparent;
+            this.btnLoginGoogle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginGoogle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnLoginGoogle.HoverState.Parent = this.btnLoginGoogle;
+            this.btnLoginGoogle.Image = global::SONA.Properties.Resources.Google;
+            this.btnLoginGoogle.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnLoginGoogle.Location = new System.Drawing.Point(124, 180);
+            this.btnLoginGoogle.Name = "btnLoginGoogle";
+            this.btnLoginGoogle.ShadowDecoration.Parent = this.btnLoginGoogle;
+            this.btnLoginGoogle.Size = new System.Drawing.Size(454, 64);
+            this.btnLoginGoogle.TabIndex = 7;
+            this.btnLoginGoogle.Text = "Đăng nhập bằng Google";
+            this.btnLoginGoogle.Click += new System.EventHandler(this.btnLoginGoogle_Click);
             // 
             // guna2Button2
             // 
@@ -283,7 +284,7 @@
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
             this.guna2Button2.Size = new System.Drawing.Size(454, 64);
             this.guna2Button2.TabIndex = 6;
-            this.guna2Button2.Text = "Đăng kí bằng Facebook";
+            this.guna2Button2.Text = "Đăng nhập bằng Facebook";
             // 
             // Login
             // 
@@ -300,7 +301,7 @@
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnLoginGoogle);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2Separator2);
@@ -315,7 +316,7 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnLoginGoogle;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;

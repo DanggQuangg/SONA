@@ -53,12 +53,9 @@ namespace SONA
         {
             try
             {
-                string credPath = "token.json";
-
-                if (Directory.Exists(credPath))
-                {
-                    Directory.Delete(credPath, true);
-                }
+                // Luôn tạo thư mục lưu token tạm thời để mỗi lần đều đăng nhập mới
+                string credPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+                Directory.CreateDirectory(credPath);
 
                 var clientSecrets = new ClientSecrets
                 {
@@ -98,6 +95,8 @@ namespace SONA
                 MessageBox.Show("Lỗi đăng nhập: " + ex.Message);
             }
         }
+
+
 
         private void btnFacebookLogin_Click(object sender, EventArgs e)
         {

@@ -36,6 +36,9 @@
     <ApplicationIcon>SONA.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis, Version=1.69.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.69.0\lib\net462\Google.Apis.dll</HintPath>
     </Reference>
@@ -81,6 +84,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,14 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,7 +167,16 @@
   <ItemGroup>
     <None Include="Resources\icons8-hide-30.png" />
     <None Include="Resources\Home.png" />
+    <None Include="Resources\SONA2.png" />
     <None Include="Resources\Home1.png" />
+    <None Include="Resources\Home2.png" />
+    <None Include="Resources\HomeOFF.png" />
+    <None Include="Resources\4PointStarOFF.png" />
+    <None Include="Resources\4PointStar.png" />
+    <None Include="Resources\DiscoverOFF.png" />
+    <None Include="Resources\Discover.png" />
+    <None Include="Resources\SearchOFF.png" />
+    <None Include="Resources\Search.png" />
     <Content Include="SONA.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

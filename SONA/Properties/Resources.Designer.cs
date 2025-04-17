@@ -63,6 +63,46 @@ namespace SONA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4PointStar {
+            get {
+                object obj = ResourceManager.GetObject("4PointStar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4PointStarOFF {
+            get {
+                object obj = ResourceManager.GetObject("4PointStarOFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Discover {
+            get {
+                object obj = ResourceManager.GetObject("Discover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DiscoverOFF {
+            get {
+                object obj = ResourceManager.GetObject("DiscoverOFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Facebook {
             get {
                 object obj = ResourceManager.GetObject("Facebook", resourceCulture);
@@ -96,6 +136,26 @@ namespace SONA.Properties {
         internal static System.Drawing.Bitmap Home1 {
             get {
                 object obj = ResourceManager.GetObject("Home1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Home2 {
+            get {
+                object obj = ResourceManager.GetObject("Home2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HomeOFF {
+            get {
+                object obj = ResourceManager.GetObject("HomeOFF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +226,36 @@ namespace SONA.Properties {
         internal static System.Drawing.Bitmap LoginBGR3 {
             get {
                 object obj = ResourceManager.GetObject("LoginBGR3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SearchOFF {
+            get {
+                object obj = ResourceManager.GetObject("SearchOFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SONA2 {
+            get {
+                object obj = ResourceManager.GetObject("SONA2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

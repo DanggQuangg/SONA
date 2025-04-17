@@ -38,14 +38,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.lbQuenmatkhau = new System.Windows.Forms.Label();
+            this.btnDangNhap = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lbDangky = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLoginGoogle = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFacebookLogin = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label2
@@ -58,7 +58,6 @@
             this.label2.Size = new System.Drawing.Size(222, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "Bạn chưa có tài khoản? Đăng kí ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -170,38 +169,39 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Mật khẩu";
             // 
-            // label6
+            // lbQuenmatkhau
             // 
-            this.label6.AutoSize = true;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.label6.Location = new System.Drawing.Point(529, 592);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Quên mật khẩu?";
+            this.lbQuenmatkhau.AutoSize = true;
+            this.lbQuenmatkhau.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbQuenmatkhau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQuenmatkhau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.lbQuenmatkhau.Location = new System.Drawing.Point(529, 592);
+            this.lbQuenmatkhau.Name = "lbQuenmatkhau";
+            this.lbQuenmatkhau.Size = new System.Drawing.Size(116, 20);
+            this.lbQuenmatkhau.TabIndex = 10;
+            this.lbQuenmatkhau.Text = "Quên mật khẩu?";
+            this.lbQuenmatkhau.Click += new System.EventHandler(this.lbQuenmatkhau_Click);
             // 
-            // guna2Button3
+            // btnDangNhap
             // 
-            this.guna2Button3.Animated = true;
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderRadius = 33;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.LightBlue;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(28, 28);
-            this.guna2Button3.Location = new System.Drawing.Point(65, 631);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(580, 64);
-            this.guna2Button3.TabIndex = 11;
-            this.guna2Button3.Text = "Đăng nhập";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.btnDangNhap.Animated = true;
+            this.btnDangNhap.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangNhap.BorderRadius = 33;
+            this.btnDangNhap.CheckedState.Parent = this.btnDangNhap;
+            this.btnDangNhap.CustomImages.Parent = this.btnDangNhap;
+            this.btnDangNhap.FillColor = System.Drawing.Color.DarkGray;
+            this.btnDangNhap.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangNhap.HoverState.FillColor = System.Drawing.Color.LightBlue;
+            this.btnDangNhap.HoverState.Parent = this.btnDangNhap;
+            this.btnDangNhap.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnDangNhap.Location = new System.Drawing.Point(65, 631);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.ShadowDecoration.Parent = this.btnDangNhap;
+            this.btnDangNhap.Size = new System.Drawing.Size(580, 64);
+            this.btnDangNhap.TabIndex = 11;
+            this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // label7
             // 
@@ -257,7 +257,8 @@
             this.btnLoginGoogle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.btnLoginGoogle.HoverState.Parent = this.btnLoginGoogle;
             this.btnLoginGoogle.Image = global::SONA.Properties.Resources.Google;
-            this.btnLoginGoogle.ImageSize = new System.Drawing.Size(28, 28);
+            this.btnLoginGoogle.ImageOffset = new System.Drawing.Point(0, -1);
+            this.btnLoginGoogle.ImageSize = new System.Drawing.Size(30, 30);
             this.btnLoginGoogle.Location = new System.Drawing.Point(124, 180);
             this.btnLoginGoogle.Name = "btnLoginGoogle";
             this.btnLoginGoogle.ShadowDecoration.Parent = this.btnLoginGoogle;
@@ -266,25 +267,27 @@
             this.btnLoginGoogle.Text = "Đăng nhập bằng Google";
             this.btnLoginGoogle.Click += new System.EventHandler(this.btnLoginGoogle_Click);
             // 
-            // guna2Button2
+            // btnFacebookLogin
             // 
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.BorderRadius = 30;
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::SONA.Properties.Resources.icons8_facebook_50;
-            this.guna2Button2.ImageSize = new System.Drawing.Size(28, 28);
-            this.guna2Button2.Location = new System.Drawing.Point(124, 260);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(454, 64);
-            this.guna2Button2.TabIndex = 6;
-            this.guna2Button2.Text = "Đăng nhập bằng Facebook";
+            this.btnFacebookLogin.Animated = true;
+            this.btnFacebookLogin.BorderRadius = 30;
+            this.btnFacebookLogin.BorderThickness = 1;
+            this.btnFacebookLogin.CheckedState.Parent = this.btnFacebookLogin;
+            this.btnFacebookLogin.CustomImages.Parent = this.btnFacebookLogin;
+            this.btnFacebookLogin.FillColor = System.Drawing.Color.Transparent;
+            this.btnFacebookLogin.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFacebookLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnFacebookLogin.HoverState.Parent = this.btnFacebookLogin;
+            this.btnFacebookLogin.Image = global::SONA.Properties.Resources.icons8_facebook_50;
+            this.btnFacebookLogin.ImageOffset = new System.Drawing.Point(0, -1);
+            this.btnFacebookLogin.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnFacebookLogin.Location = new System.Drawing.Point(124, 260);
+            this.btnFacebookLogin.Name = "btnFacebookLogin";
+            this.btnFacebookLogin.ShadowDecoration.Parent = this.btnFacebookLogin;
+            this.btnFacebookLogin.Size = new System.Drawing.Size(454, 64);
+            this.btnFacebookLogin.TabIndex = 6;
+            this.btnFacebookLogin.Text = "Đăng nhập bằng Facebook";
+            this.btnFacebookLogin.Click += new System.EventHandler(this.btnFacebookLogin_Click);
             // 
             // Login
             // 
@@ -294,15 +297,15 @@
             this.Controls.Add(this.lbDangky);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.guna2Button3);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnDangNhap);
+            this.Controls.Add(this.lbQuenmatkhau);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLoginGoogle);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.btnFacebookLogin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2Separator2);
             this.Controls.Add(this.label3);
@@ -317,7 +320,7 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnLoginGoogle;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnFacebookLogin;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
@@ -326,8 +329,8 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private System.Windows.Forms.Label lbQuenmatkhau;
+        private Guna.UI2.WinForms.Guna2Button btnDangNhap;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label lbDangky;

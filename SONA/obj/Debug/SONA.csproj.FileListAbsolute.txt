@@ -39,3 +39,5 @@ C:\Study\tinyProject\SONA\SONA\bin\Debug\Google.Apis.Core.xml
 C:\Study\tinyProject\SONA\SONA\bin\Debug\Google.Apis.Oauth2.v2.pdb
 C:\Study\tinyProject\SONA\SONA\bin\Debug\Google.Apis.Oauth2.v2.xml
 C:\Study\tinyProject\SONA\SONA\bin\Debug\Newtonsoft.Json.xml
+C:\Study\tinyProject\SONA\SONA\bin\Debug\Facebook.dll
+C:\Study\tinyProject\SONA\SONA\bin\Debug\Facebook.xml

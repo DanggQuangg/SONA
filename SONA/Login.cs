@@ -23,8 +23,8 @@ namespace SONA
 {
     public partial class Login : UserControl
     {
-        private const string AppId = "984538890449740"; // Thay bằng App ID của bạn
-        private const string AppSecret = "1f3490111b9ddddbf4010a67954a1522"; // Thay bằng App Secret
+        private const string AppId = "984538890449740"; 
+        private const string AppSecret = "1f3490111b9ddddbf4010a67954a1522"; 
         private const string RedirectUri = "http://localhost:8000/facebook-signin";
         private const string AuthUrl = "https://www.facebook.com/v20.0/dialog/oauth?client_id={0}&redirect_uri={1}&response_type=code&scope=public_profile";
         SONA S;
@@ -53,7 +53,6 @@ namespace SONA
         {
             try
             {
-                // Luôn tạo thư mục lưu token tạm thời để mỗi lần đều đăng nhập mới
                 string credPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
                 Directory.CreateDirectory(credPath);
 
@@ -100,10 +99,8 @@ namespace SONA
 
         private void btnFacebookLogin_Click(object sender, EventArgs e)
         {
-            // Tạo URL đăng nhập
             string loginUrl = string.Format(AuthUrl, AppId, Uri.EscapeDataString(RedirectUri));
 
-            // Mở trình duyệt mặc định
             try
             {
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
@@ -111,8 +108,6 @@ namespace SONA
                     FileName = loginUrl,
                     UseShellExecute = true
                 });
-
-                // Bắt đầu lắng nghe mã code từ Facebook
                 StartHttpListener();
             }
             catch (Exception ex)

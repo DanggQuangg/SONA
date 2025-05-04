@@ -102,3 +102,4 @@ C:\Users\Tnvho\OneDrive\Project\SONA\SONA\bin\Debug\SONA.exe.config
 C:\Users\Tnvho\OneDrive\Project\SONA\SONA\bin\Debug\SONA.exe
 C:\Users\Tnvho\OneDrive\Project\SONA\SONA\bin\Debug\SONA.pdb
 C:\Users\Tnvho\OneDrive\Project\SONA\SONA\obj\Debug\SONA.csproj.Up2Date
+C:\Users\Tnvho\OneDrive\Project\SONA\SONA\obj\Debug\SONA.ListenMusic.resources

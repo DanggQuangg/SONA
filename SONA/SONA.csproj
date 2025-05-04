@@ -83,6 +83,12 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListenMusic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListenMusic.Designer.cs">
+      <DependentUpon>ListenMusic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListenMusic.resx">
+      <DependentUpon>ListenMusic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -190,6 +199,13 @@
     <None Include="Resources\Search.png" />
     <None Include="Resources\discoverOn.png" />
     <None Include="Resources\discoverOff.png" />
+    <None Include="Resources\Library.png" />
+    <None Include="Resources\Top-cac-bo-phim-va-chuong-trinh-truyen-hinh-an-khach-nhat-tren-Netflix-tu-truoc-den-nay-theo-Netflix.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Notification.png" />
+    <None Include="Resources\User.png" />
+    <None Include="Resources\Setting.png" />
+    <None Include="Resources\LikeOn.png" />
     <Content Include="SONA.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

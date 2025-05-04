@@ -237,5 +237,10 @@ namespace SONA
         {
             System.Diagnostics.Process.Start("https://pham-dang-quang-jn3ufhr.gamma.site/");
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            S.Close();
+        }
     }
 }

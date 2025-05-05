@@ -93,6 +93,16 @@ namespace SONA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Chat {
             get {
                 object obj = ResourceManager.GetObject("Chat", resourceCulture);
@@ -363,6 +373,16 @@ namespace SONA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Right {
+            get {
+                object obj = ResourceManager.GetObject("Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Saves {
             get {
                 object obj = ResourceManager.GetObject("Saves", resourceCulture);
@@ -393,10 +413,19 @@ namespace SONA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Top_cac_bo_phim_va_chuong_trinh_truyen_hinh_an_khach_nhat_tren_Netflix_tu_truoc_den_nay_theo_Netflix {
+        internal static System.Drawing.Bitmap SONA2 {
             get {
-                object obj = ResourceManager.GetObject("Top-cac-bo-phim-va-chuong-trinh-truyen-hinh-an-khach-nhat-tren-Netflix-tu-truoc-d" +
-                        "en-nay-theo-Netflix", resourceCulture);
+                object obj = ResourceManager.GetObject("SONA2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SONA2Logo {
+            get {
+                object obj = ResourceManager.GetObject("SONA2Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

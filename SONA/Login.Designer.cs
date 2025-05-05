@@ -43,10 +43,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbDangky = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnLoginGoogle = new Guna.UI2.WinForms.Guna2Button();
             this.btnFacebookLogin = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label2
@@ -181,7 +181,7 @@
             this.btnDangNhap.BackColor = System.Drawing.Color.Transparent;
             this.btnDangNhap.BorderRadius = 33;
             this.btnDangNhap.FillColor = System.Drawing.Color.DarkGray;
-            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
             this.btnDangNhap.HoverState.FillColor = System.Drawing.Color.LightBlue;
             this.btnDangNhap.ImageSize = new System.Drawing.Size(28, 28);
@@ -221,6 +221,20 @@
             // 
             this.guna2Elipse1.BorderRadius = 24;
             this.guna2Elipse1.TargetControl = this;
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.BackgroundImage = global::SONA.Properties.Resources.x;
+            this.guna2Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
+            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button3.Location = new System.Drawing.Point(641, 33);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(20, 20);
+            this.guna2Button3.TabIndex = 15;
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Panel1
             // 
@@ -268,20 +282,6 @@
             this.btnFacebookLogin.TabIndex = 6;
             this.btnFacebookLogin.Text = "Đăng nhập bằng Facebook";
             this.btnFacebookLogin.Click += new System.EventHandler(this.btnFacebookLogin_Click);
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BackgroundImage = global::SONA.Properties.Resources.x;
-            this.guna2Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Location = new System.Drawing.Point(641, 33);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(20, 20);
-            this.guna2Button3.TabIndex = 15;
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // Login
             // 

@@ -1,11 +1,16 @@
-﻿using NAudio.Wave;
+﻿using Guna.UI2.WinForms;
+using NAudio.Dsp;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,160 +20,266 @@ namespace SONA
     public partial class Home : UserControl
     {
         SONA S;
-        string connectString = @"Data Source=(local);Initial Catalog=MUSIC_APP;Integrated Security=True";
-        SqlConnection connect;
-        SqlCommand command;
-        SqlDataAdapter adapter;
-        DataTable dtb;
+        private ListenMusic currentListenMusic;
+        private string emailUser;
+        private string idUser;
 
-        public Home(SONA s)
+        public Home(SONA s, string email)
         {
-            InitializeComponent();
             S = s;
+            emailUser = email;
+            InitializeComponent();
+            getIdUser();
+            getAvatarUser();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void getIdUser()
         {
-            var listenMusic = guna2Panel2.Controls.OfType<ListenMusic>().FirstOrDefault();
-            if (listenMusic != null)
+            try
             {
-                listenMusic.StopMusicAndDispose();
+                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+                using (NetworkStream stream = client.GetStream())
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    writer.Write("getIDUser");
+                    writer.Write(emailUser);
+                    string response = reader.ReadString();
+
+                    if (response == "OK")
+                    {
+                        idUser = reader.ReadString();
+                    }
+                    else
+                    {
+                        MessageBox.Show(response);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to server: " + ex.Message);
+            }
+        }
+
+        private async void getAvatarUser()
+        {
+            try
+            {
+                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+                using (NetworkStream stream = client.GetStream())
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    writer.Write("getAvatarUser");
+                    writer.Write(idUser);
+
+                    string response = reader.ReadString(); // Nhận phản hồi từ server
+                    if (response == "OK")
+                    {
+                        string pictureUrl = reader.ReadString(); // Lấy đường dẫn URL của hình ảnh trên supabase
+                        if (!string.IsNullOrEmpty(pictureUrl))  // Nếu có tồn tại đường dẫn tới file hình ảnh
+                        {
+                            using (var htppClient = new HttpClient()) // Tạo HttpClient để tải hình ảnh
+                            {
+                                var imageData = await htppClient.GetByteArrayAsync(pictureUrl); // Tải hình ảnh từ URL bằng phương thức GetByteArrayAsync
+                                using (var ms = new MemoryStream(imageData)) // Tạo MemoryStream dể lấy dữ liệu hình ảnh
+                                {
+                                    cpbUserInfor.Image = Image.FromStream(ms); // Chuyển đổi MemoryStream thành Image
+                                }
+                            }
+                        }
+                        else
+                        {
+                            cpbUserInfor.Image = null;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(response);
+                        cpbUserInfor.Image = null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to server: " + ex.Message);
+            }
+        }
+        private void MyClick()
+        {
+            pnMyLibrary.FillColor = Color.FromArgb(17, 17, 17);
+            btnDiscover.Checked = false;
+            btnHome.Checked = false;
+            btnSearch.Checked = false;
+            txtSearch.Visible = false;
+            btnSearch.Visible = true;
+        }
+
+        // Hàm gọi form homeContent chứa các nội dung trong home
+        private void Home_Load(object sender, EventArgs e)
+        {
+            HomeContent homeContent = new HomeContent(this, idUser);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(homeContent);
+
+        }
+
+        private void btnLibrary_Click(object sender, EventArgs e)
+        {
+            pnMyLibrary.FillColor = Color.FromArgb(17, 17, 17);
+        }
+
+        private void btnPlaylists_Click(object sender, EventArgs e)
+        {
+            MyClick();
+        }
+
+        private void btnFavorited_Click(object sender, EventArgs e)
+        {
+            MyClick();
+
+            if (currentListenMusic != null)
+            {
+                currentListenMusic.StopMusicAndDispose();
+                currentListenMusic = null;
             }
 
-            Home home = new Home(S);
-            S.pnMain.Controls.Clear();
-            S.pnMain.Controls.Add(home);
-            home.Dock = DockStyle.Fill;
+            Favourite favourite = new Favourite(this, idUser);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(favourite);
         }
 
-
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void btnAlbums_Click(object sender, EventArgs e)
         {
+            MyClick();
 
+            if (currentListenMusic != null)
+            {
+                currentListenMusic.StopMusicAndDispose();
+                currentListenMusic = null;
+            }
+
+            AlbumList albumList = new AlbumList(this, idUser);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(albumList);
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            MenuClick();
+            txtSearch.Visible = true;
+            btnSearch.Visible = false;
+            txtSearch.Focus();
         }
 
-        private void guna2Panel5_Paint(object sender, PaintEventArgs e)
+        private void MenuClick()
         {
-
+            pnMyLibrary.FillColor = Color.FromArgb(39, 39, 39);
+            btnAlbums.Checked = false;
+            btnPlaylists.Checked = false;
+            btnLibrary.Checked = false;
+            btnFavorited.Checked = false;
+            btnChat.Checked = false;
         }
 
-        private void guna2PictureBox5_Click(object sender, EventArgs e)
+        // Hàm quay trở lại màn hình chính khi nhấn nút home và gọi hàm StopMusicAndDispose để dừng bài hát đang phát
+        private void btnHome_Click(object sender, EventArgs e)
         {
+            MenuClick();
 
+            txtSearch.Visible = false;
+            btnSearch.Visible = true;
+
+            if (currentListenMusic != null)
+            {
+                currentListenMusic.StopMusicAndDispose();
+                currentListenMusic = null;
+            }
+
+            HomeContent home = new HomeContent(this, idUser);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(home);
         }
 
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        private void btnDiscover_Click(object sender, EventArgs e)
         {
-
+            MenuClick();
+            txtSearch.Visible = false;
+            btnSearch.Visible = true;
         }
 
-        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        private void btnChat_Click(object sender, EventArgs e)
         {
+            MyClick();
 
+            ChatForm chatForm = new ChatForm(emailUser);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(chatForm);
         }
 
-        private void guna2Button29_Click(object sender, EventArgs e)
+        private void btnArtists_Click(object sender, EventArgs e)
+        {
+            MyClick();
+
+            if (currentListenMusic != null)
+            {
+                currentListenMusic.StopMusicAndDispose();
+                currentListenMusic = null;
+            }
+
+            ArtistList artistList = new ArtistList(this, idUser);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(artistList);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void guna2Button17_Click(object sender, EventArgs e)
+        public void btnMinimize_Click(object sender, EventArgs e)
         {
-            ListenMusic listenMusic = new ListenMusic(S, 0);
-
-            guna2Panel2.Controls.Clear();
-            guna2Panel2.Controls.Add(listenMusic);
-            listenMusic.Dock = DockStyle.Fill;
+            S.WindowState = FormWindowState.Minimized;
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        // Hàm tìm kiếm bài hát khi nhấn enter vào ô tìm kiếm
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            try
+            if (e.KeyCode == Keys.Enter)
             {
-                connect = new SqlConnection(connectString);
-                connect.Open();
-
-                command = new SqlCommand("SELECT * FROM SONGS", connect);
-                adapter = new SqlDataAdapter(command);
-                dtb = new DataTable();
-
-                adapter.Fill(dtb);
-
-                var buttons = new[] { guna2Button17, guna2Button18, guna2Button19, guna2Button20, guna2Button21, guna2Button22, guna2Button33 };
-                var labels = new[] { guna2HtmlLabel4, guna2HtmlLabel5, guna2HtmlLabel6, guna2HtmlLabel7, guna2HtmlLabel8, guna2HtmlLabel9, guna2HtmlLabel10};
-
-                for (int i = 0; i < buttons.Length && i < dtb.Rows.Count; i++)
+                if (currentListenMusic != null)
                 {
-                    string srcPicture = dtb.Rows[i]["PICTURE_SONG"].ToString();
-                    string srcName = dtb.Rows[i]["NAME_SONG"].ToString();
-
-                    if (System.IO.File.Exists(srcPicture))
-                    {
-                        buttons[i].Image = Image.FromFile(srcPicture);
-                        buttons[i].ImageSize = new Size(226, 208);
-
-                        labels[i].Text = srcName;
-                    }
+                    currentListenMusic.StopMusicAndDispose();
+                    currentListenMusic = null;
                 }
-                connect.Close();
+
+                SearchForm searchForm = new SearchForm(this, idUser);
+                pnMain.Controls.Clear();
+                pnMain.Controls.Add(searchForm);
             }
-            catch (Exception ex)
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+            txtSearch.Focus();
+        }
+
+        // Hàm dừng bài hát khi nó đang phát trong form listenMusic
+        public void SetCurrentListenMusic(ListenMusic listenMusic)
+        {
+            if (currentListenMusic != null && currentListenMusic != listenMusic)
             {
-                MessageBox.Show("Error loading song images: " + ex.Message);
+                currentListenMusic.StopMusicAndDispose();
             }
+            currentListenMusic = listenMusic;
         }
 
-        private void guna2Button18_Click(object sender, EventArgs e)
+        private void cpbUserInfor_Click(object sender, EventArgs e)
         {
-            ListenMusic listenMusic = new ListenMusic(S, 1);
-            guna2Panel2.Controls.Clear();
-            guna2Panel2.Controls.Add(listenMusic);
-            listenMusic.Dock = DockStyle.Fill;
-        }
-
-        private void guna2Button19_Click(object sender, EventArgs e)
-        {
-            ListenMusic listenMusic = new ListenMusic(S, 2);
-            guna2Panel2.Controls.Clear();
-            guna2Panel2.Controls.Add(listenMusic);
-            listenMusic.Dock = DockStyle.Fill;
-        }
-
-        private void guna2Button20_Click(object sender, EventArgs e)
-        {
-            ListenMusic listenMusic = new ListenMusic(S, 3);
-            guna2Panel2.Controls.Clear();
-            guna2Panel2.Controls.Add(listenMusic);
-            listenMusic.Dock = DockStyle.Fill;
-        }
-
-        private void guna2Button21_Click(object sender, EventArgs e)
-        {
-            ListenMusic listenMusic = new ListenMusic(S, 4);
-            guna2Panel2.Controls.Clear();
-            guna2Panel2.Controls.Add(listenMusic);
-            listenMusic.Dock = DockStyle.Fill;
-        }
-
-        private void guna2Button22_Click(object sender, EventArgs e)
-        {
-            ListenMusic listenMusic = new ListenMusic(S, 5);
-            guna2Panel2.Controls.Clear();
-            guna2Panel2.Controls.Add(listenMusic);
-            listenMusic.Dock = DockStyle.Fill;
-        }
-
-        private void guna2Button33_Click(object sender, EventArgs e)
-        {
-            ListenMusic listenMusic = new ListenMusic(S, 6);
-            guna2Panel2.Controls.Clear();
-            guna2Panel2.Controls.Add(listenMusic);
-            listenMusic.Dock = DockStyle.Fill;
+            UserInfor userInfor = new UserInfor(this, S, idUser);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(userInfor);
         }
     }
 }

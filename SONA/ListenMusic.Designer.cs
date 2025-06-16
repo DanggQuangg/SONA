@@ -32,73 +32,111 @@ namespace SONA
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pbPictureSong = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblSince = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblNameSinger = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TrackBar2 = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.guna2TrackBar1 = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tbsVolume = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.tbsTimeSong = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.lblEnd = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblProcess = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLyrics = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFavourite = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAlbums = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPlayMusic = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPrev = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShuffle = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.btnReplay = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMore = new Guna.UI2.WinForms.Guna2Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.cpbPictureSinger = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPictureSong)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            this.guna2Panel6.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cpbPictureSinger)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
-            this.guna2Panel1.Location = new System.Drawing.Point(12, 0);
+            this.guna2Panel1.Controls.Add(this.pbPictureSong);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1478, 735);
+            this.guna2Panel1.Size = new System.Drawing.Size(1490, 735);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // guna2PictureBox1
+            // pbPictureSong
             // 
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(379, 34);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(709, 669);
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
+            this.pbPictureSong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbPictureSong.FillColor = System.Drawing.Color.Transparent;
+            this.pbPictureSong.ImageRotate = 0F;
+            this.pbPictureSong.Location = new System.Drawing.Point(400, 30);
+            this.pbPictureSong.Name = "pbPictureSong";
+            this.pbPictureSong.Size = new System.Drawing.Size(680, 680);
+            this.pbPictureSong.TabIndex = 0;
+            this.pbPictureSong.TabStop = false;
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.guna2Panel2.Controls.Add(this.guna2Panel6);
             this.guna2Panel2.Controls.Add(this.guna2Panel5);
-            this.guna2Panel2.Controls.Add(this.guna2TrackBar1);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2Panel2.Controls.Add(this.tbsTimeSong);
+            this.guna2Panel2.Controls.Add(this.lblEnd);
+            this.guna2Panel2.Controls.Add(this.lblProcess);
             this.guna2Panel2.Controls.Add(this.guna2Panel4);
             this.guna2Panel2.Controls.Add(this.guna2Panel3);
-            this.guna2Panel2.Controls.Add(this.guna2Button11);
-            this.guna2Panel2.Controls.Add(this.guna2Button10);
-            this.guna2Panel2.Location = new System.Drawing.Point(12, 754);
+            this.guna2Panel2.Controls.Add(this.btnMore);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 754);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1478, 200);
+            this.guna2Panel2.Size = new System.Drawing.Size(1482, 919);
             this.guna2Panel2.TabIndex = 0;
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.Controls.Add(this.cpbPictureSinger);
+            this.guna2Panel6.Controls.Add(this.lblSince);
+            this.guna2Panel6.Controls.Add(this.lblNameSinger);
+            this.guna2Panel6.Location = new System.Drawing.Point(59, 56);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.Size = new System.Drawing.Size(274, 80);
+            this.guna2Panel6.TabIndex = 6;
+            // 
+            // lblSince
+            // 
+            this.lblSince.BackColor = System.Drawing.Color.Transparent;
+            this.lblSince.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSince.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblSince.Location = new System.Drawing.Point(98, 44);
+            this.lblSince.Name = "lblSince";
+            this.lblSince.Size = new System.Drawing.Size(170, 22);
+            this.lblSince.TabIndex = 1;
+            this.lblSince.Text = "Since 1991, December 02";
+            // 
+            // lblNameSinger
+            // 
+            this.lblNameSinger.BackColor = System.Drawing.Color.Transparent;
+            this.lblNameSinger.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameSinger.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblNameSinger.Location = new System.Drawing.Point(98, 17);
+            this.lblNameSinger.Name = "lblNameSinger";
+            this.lblNameSinger.Size = new System.Drawing.Size(108, 30);
+            this.lblNameSinger.TabIndex = 1;
+            this.lblNameSinger.Text = "Charlie Puth";
             // 
             // guna2Panel5
             // 
             this.guna2Panel5.Controls.Add(this.guna2Button6);
-            this.guna2Panel5.Controls.Add(this.guna2TrackBar2);
+            this.guna2Panel5.Controls.Add(this.tbsVolume);
             this.guna2Panel5.Location = new System.Drawing.Point(1050, 56);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(163, 80);
@@ -120,256 +158,285 @@ namespace SONA
             this.guna2Button6.Size = new System.Drawing.Size(50, 68);
             this.guna2Button6.TabIndex = 0;
             // 
-            // guna2TrackBar2
+            // tbsVolume
             // 
-            this.guna2TrackBar2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.guna2TrackBar2.Location = new System.Drawing.Point(59, 19);
-            this.guna2TrackBar2.Name = "guna2TrackBar2";
-            this.guna2TrackBar2.Size = new System.Drawing.Size(93, 40);
-            this.guna2TrackBar2.TabIndex = 4;
-            this.guna2TrackBar2.ThumbColor = System.Drawing.Color.Silver;
-            this.guna2TrackBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBar2_Scroll);
+            this.tbsVolume.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbsVolume.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.tbsVolume.Location = new System.Drawing.Point(59, 19);
+            this.tbsVolume.Name = "tbsVolume";
+            this.tbsVolume.Size = new System.Drawing.Size(93, 40);
+            this.tbsVolume.TabIndex = 4;
+            this.tbsVolume.ThumbColor = System.Drawing.Color.Silver;
+            this.tbsVolume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.tbsVolume_Scroll);
             // 
-            // guna2TrackBar1
+            // tbsTimeSong
             // 
-            this.guna2TrackBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.guna2TrackBar1.Location = new System.Drawing.Point(431, 43);
-            this.guna2TrackBar1.Name = "guna2TrackBar1";
-            this.guna2TrackBar1.Size = new System.Drawing.Size(542, 31);
-            this.guna2TrackBar1.TabIndex = 4;
-            this.guna2TrackBar1.ThumbColor = System.Drawing.Color.Silver;
-            this.guna2TrackBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2TrackBar1_Scroll);
+            this.tbsTimeSong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbsTimeSong.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.tbsTimeSong.Location = new System.Drawing.Point(431, 43);
+            this.tbsTimeSong.Name = "tbsTimeSong";
+            this.tbsTimeSong.Size = new System.Drawing.Size(542, 31);
+            this.tbsTimeSong.TabIndex = 4;
+            this.tbsTimeSong.ThumbColor = System.Drawing.Color.Silver;
+            this.tbsTimeSong.Value = 0;
+            this.tbsTimeSong.Scroll += new System.Windows.Forms.ScrollEventHandler(this.tbsTimeSong_Scroll);
             // 
-            // guna2HtmlLabel2
+            // lblEnd
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(942, 80);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(31, 20);
-            this.guna2HtmlLabel2.TabIndex = 3;
-            this.guna2HtmlLabel2.Text = "4:45";
+            this.lblEnd.BackColor = System.Drawing.Color.Transparent;
+            this.lblEnd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnd.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblEnd.Location = new System.Drawing.Point(943, 73);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(38, 22);
+            this.lblEnd.TabIndex = 3;
+            this.lblEnd.Text = "10:00";
             // 
-            // guna2HtmlLabel1
+            // lblProcess
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(431, 80);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(31, 20);
-            this.guna2HtmlLabel1.TabIndex = 3;
-            this.guna2HtmlLabel1.Text = "2:23";
+            this.lblProcess.BackColor = System.Drawing.Color.Transparent;
+            this.lblProcess.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProcess.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblProcess.Location = new System.Drawing.Point(431, 73);
+            this.lblProcess.Name = "lblProcess";
+            this.lblProcess.Size = new System.Drawing.Size(38, 22);
+            this.lblProcess.TabIndex = 3;
+            this.lblProcess.Text = "00:00";
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.Controls.Add(this.guna2Button9);
-            this.guna2Panel4.Controls.Add(this.guna2Button7);
-            this.guna2Panel4.Controls.Add(this.guna2Button8);
+            this.guna2Panel4.Controls.Add(this.btnLyrics);
+            this.guna2Panel4.Controls.Add(this.btnFavourite);
+            this.guna2Panel4.Controls.Add(this.btnAlbums);
             this.guna2Panel4.Location = new System.Drawing.Point(1216, 56);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(185, 80);
             this.guna2Panel4.TabIndex = 0;
             // 
-            // guna2Button9
+            // btnLyrics
             // 
-            this.guna2Button9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button9.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button9.ForeColor = System.Drawing.Color.White;
-            this.guna2Button9.Image = global::SONA.Properties.Resources.Lyrics;
-            this.guna2Button9.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2Button9.Location = new System.Drawing.Point(115, 2);
-            this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button9.TabIndex = 0;
+            this.btnLyrics.Animated = true;
+            this.btnLyrics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLyrics.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLyrics.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLyrics.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLyrics.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLyrics.FillColor = System.Drawing.Color.Transparent;
+            this.btnLyrics.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLyrics.ForeColor = System.Drawing.Color.White;
+            this.btnLyrics.Image = global::SONA.Properties.Resources.Lyrics;
+            this.btnLyrics.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnLyrics.Location = new System.Drawing.Point(115, 2);
+            this.btnLyrics.Name = "btnLyrics";
+            this.btnLyrics.Size = new System.Drawing.Size(50, 68);
+            this.btnLyrics.TabIndex = 0;
             // 
-            // guna2Button7
+            // btnFavourite
             // 
-            this.guna2Button7.CheckedState.Image = global::SONA.Properties.Resources.LikeOn;
-            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button7.ForeColor = System.Drawing.Color.White;
-            this.guna2Button7.Image = global::SONA.Properties.Resources.Favourites1;
-            this.guna2Button7.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2Button7.Location = new System.Drawing.Point(3, 3);
-            this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button7.TabIndex = 0;
+            this.btnFavourite.Animated = true;
+            this.btnFavourite.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnFavourite.CheckedState.Image = global::SONA.Properties.Resources.FavouriteOn;
+            this.btnFavourite.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFavourite.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFavourite.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFavourite.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFavourite.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFavourite.FillColor = System.Drawing.Color.Transparent;
+            this.btnFavourite.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFavourite.ForeColor = System.Drawing.Color.White;
+            this.btnFavourite.Image = global::SONA.Properties.Resources.Favourites;
+            this.btnFavourite.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnFavourite.Location = new System.Drawing.Point(3, 3);
+            this.btnFavourite.Name = "btnFavourite";
+            this.btnFavourite.Size = new System.Drawing.Size(50, 68);
+            this.btnFavourite.TabIndex = 0;
+            this.btnFavourite.Click += new System.EventHandler(this.btnFavourite_Click);
             // 
-            // guna2Button8
+            // btnAlbums
             // 
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button8.ForeColor = System.Drawing.Color.White;
-            this.guna2Button8.Image = global::SONA.Properties.Resources.Add;
-            this.guna2Button8.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2Button8.Location = new System.Drawing.Point(59, 3);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button8.TabIndex = 0;
+            this.btnAlbums.Animated = true;
+            this.btnAlbums.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlbums.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAlbums.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAlbums.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAlbums.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAlbums.FillColor = System.Drawing.Color.Transparent;
+            this.btnAlbums.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAlbums.ForeColor = System.Drawing.Color.White;
+            this.btnAlbums.Image = global::SONA.Properties.Resources.Add;
+            this.btnAlbums.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnAlbums.Location = new System.Drawing.Point(59, 3);
+            this.btnAlbums.Name = "btnAlbums";
+            this.btnAlbums.Size = new System.Drawing.Size(50, 68);
+            this.btnAlbums.TabIndex = 0;
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.Controls.Add(this.guna2Button1);
-            this.guna2Panel3.Controls.Add(this.guna2Button2);
-            this.guna2Panel3.Controls.Add(this.guna2Button4);
-            this.guna2Panel3.Controls.Add(this.guna2Button3);
-            this.guna2Panel3.Controls.Add(this.guna2Button5);
+            this.guna2Panel3.Controls.Add(this.btnPlayMusic);
+            this.guna2Panel3.Controls.Add(this.btnPrev);
+            this.guna2Panel3.Controls.Add(this.btnShuffle);
+            this.guna2Panel3.Controls.Add(this.btnNext);
+            this.guna2Panel3.Controls.Add(this.btnReplay);
             this.guna2Panel3.Location = new System.Drawing.Point(556, 80);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(298, 80);
             this.guna2Panel3.TabIndex = 1;
             // 
-            // guna2Button1
+            // btnPlayMusic
             // 
-            this.guna2Button1.CheckedState.Image = global::SONA.Properties.Resources.PlayAni1;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::SONA.Properties.Resources.PauseAni;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button1.Location = new System.Drawing.Point(111, 3);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(71, 68);
-            this.guna2Button1.TabIndex = 0;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnPlayMusic.Animated = true;
+            this.btnPlayMusic.CheckedState.Image = global::SONA.Properties.Resources.PlayAni;
+            this.btnPlayMusic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlayMusic.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPlayMusic.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPlayMusic.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPlayMusic.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPlayMusic.FillColor = System.Drawing.Color.Transparent;
+            this.btnPlayMusic.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPlayMusic.ForeColor = System.Drawing.Color.White;
+            this.btnPlayMusic.Image = global::SONA.Properties.Resources.PauseAni;
+            this.btnPlayMusic.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnPlayMusic.Location = new System.Drawing.Point(111, 3);
+            this.btnPlayMusic.Name = "btnPlayMusic";
+            this.btnPlayMusic.Size = new System.Drawing.Size(71, 68);
+            this.btnPlayMusic.TabIndex = 0;
+            this.btnPlayMusic.Click += new System.EventHandler(this.btnPlayMusic_Click);
             // 
-            // guna2Button2
+            // btnPrev
             // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = global::SONA.Properties.Resources.Prev;
-            this.guna2Button2.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button2.Location = new System.Drawing.Point(56, 3);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button2.TabIndex = 0;
+            this.btnPrev.Animated = true;
+            this.btnPrev.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrev.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrev.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrev.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrev.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrev.FillColor = System.Drawing.Color.Transparent;
+            this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPrev.ForeColor = System.Drawing.Color.White;
+            this.btnPrev.Image = global::SONA.Properties.Resources.Prev;
+            this.btnPrev.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnPrev.Location = new System.Drawing.Point(56, 3);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(50, 68);
+            this.btnPrev.TabIndex = 0;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
-            // guna2Button4
+            // btnShuffle
             // 
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Image = global::SONA.Properties.Resources.Shuffle;
-            this.guna2Button4.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button4.Location = new System.Drawing.Point(1, 3);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button4.TabIndex = 0;
+            this.btnShuffle.Animated = true;
+            this.btnShuffle.CheckedState.Image = global::SONA.Properties.Resources.ShuffleOn;
+            this.btnShuffle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShuffle.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShuffle.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShuffle.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShuffle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShuffle.FillColor = System.Drawing.Color.Transparent;
+            this.btnShuffle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnShuffle.ForeColor = System.Drawing.Color.White;
+            this.btnShuffle.Image = global::SONA.Properties.Resources.Shuffle;
+            this.btnShuffle.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnShuffle.Location = new System.Drawing.Point(1, 3);
+            this.btnShuffle.Name = "btnShuffle";
+            this.btnShuffle.Size = new System.Drawing.Size(50, 68);
+            this.btnShuffle.TabIndex = 0;
+            this.btnShuffle.Click += new System.EventHandler(this.btnShuffle_Click);
             // 
-            // guna2Button3
+            // btnNext
             // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Image = global::SONA.Properties.Resources.Next;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button3.Location = new System.Drawing.Point(188, 3);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button3.TabIndex = 0;
+            this.btnNext.Animated = true;
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNext.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNext.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNext.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNext.FillColor = System.Drawing.Color.Transparent;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Image = global::SONA.Properties.Resources.Next;
+            this.btnNext.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnNext.Location = new System.Drawing.Point(188, 3);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(50, 68);
+            this.btnNext.TabIndex = 0;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // guna2Button5
+            // btnReplay
             // 
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Image = global::SONA.Properties.Resources.Record;
-            this.guna2Button5.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2Button5.Location = new System.Drawing.Point(245, 3);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button5.TabIndex = 0;
-            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
+            this.btnReplay.Animated = true;
+            this.btnReplay.CheckedState.Image = global::SONA.Properties.Resources.RecoreOn;
+            this.btnReplay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReplay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReplay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReplay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReplay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReplay.FillColor = System.Drawing.Color.Transparent;
+            this.btnReplay.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnReplay.ForeColor = System.Drawing.Color.White;
+            this.btnReplay.Image = global::SONA.Properties.Resources.Record;
+            this.btnReplay.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnReplay.Location = new System.Drawing.Point(245, 3);
+            this.btnReplay.Name = "btnReplay";
+            this.btnReplay.Size = new System.Drawing.Size(50, 68);
+            this.btnReplay.TabIndex = 0;
+            this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
             // 
-            // guna2Button11
+            // btnMore
             // 
-            this.guna2Button11.BorderRadius = 10;
-            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button11.FillColor = System.Drawing.Color.White;
-            this.guna2Button11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button11.ForeColor = System.Drawing.Color.White;
-            this.guna2Button11.Location = new System.Drawing.Point(31, 56);
-            this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(83, 80);
-            this.guna2Button11.TabIndex = 0;
-            // 
-            // guna2Button10
-            // 
-            this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button10.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button10.ForeColor = System.Drawing.Color.White;
-            this.guna2Button10.Image = global::SONA.Properties.Resources.More;
-            this.guna2Button10.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2Button10.Location = new System.Drawing.Point(1416, 59);
-            this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.Size = new System.Drawing.Size(50, 68);
-            this.guna2Button10.TabIndex = 0;
-            this.guna2Button10.Click += new System.EventHandler(this.guna2Button10_Click);
+            this.btnMore.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnMore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMore.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMore.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMore.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMore.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMore.FillColor = System.Drawing.Color.Transparent;
+            this.btnMore.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMore.ForeColor = System.Drawing.Color.White;
+            this.btnMore.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnMore.Image = global::SONA.Properties.Resources.More;
+            this.btnMore.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnMore.Location = new System.Drawing.Point(1416, 59);
+            this.btnMore.Name = "btnMore";
+            this.btnMore.Size = new System.Drawing.Size(50, 68);
+            this.btnMore.TabIndex = 0;
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // cpbPictureSinger
+            // 
+            this.cpbPictureSinger.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cpbPictureSinger.FillColor = System.Drawing.Color.Transparent;
+            this.cpbPictureSinger.ImageRotate = 0F;
+            this.cpbPictureSinger.Location = new System.Drawing.Point(3, 0);
+            this.cpbPictureSinger.Name = "cpbPictureSinger";
+            this.cpbPictureSinger.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.cpbPictureSinger.Size = new System.Drawing.Size(80, 80);
+            this.cpbPictureSinger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cpbPictureSinger.TabIndex = 7;
+            this.cpbPictureSinger.TabStop = false;
+            this.cpbPictureSinger.Click += new System.EventHandler(this.cpbPictureSinger_Click);
+            // 
             // ListenMusic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ListenMusic";
-            this.Size = new System.Drawing.Size(1502, 966);
+            this.Size = new System.Drawing.Size(1482, 919);
             this.Load += new System.EventHandler(this.ListenMusic_Load);
-            this.Leave += new System.EventHandler(this.ListenMusic_Leave);
             this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPictureSong)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            this.guna2Panel6.ResumeLayout(false);
+            this.guna2Panel6.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cpbPictureSinger)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -377,27 +444,29 @@ namespace SONA
         #endregion
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button btnPlayMusic;
+        private Guna.UI2.WinForms.Guna2Button btnPrev;
+        private Guna.UI2.WinForms.Guna2Button btnNext;
+        private Guna.UI2.WinForms.Guna2Button btnReplay;
+        private Guna.UI2.WinForms.Guna2Button btnShuffle;
         private Guna.UI2.WinForms.Guna2Button guna2Button6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
-        private Guna.UI2.WinForms.Guna2Button guna2Button10;
-        private Guna.UI2.WinForms.Guna2Button guna2Button11;
+        private Guna.UI2.WinForms.Guna2Button btnLyrics;
+        private Guna.UI2.WinForms.Guna2Button btnAlbums;
+        private Guna.UI2.WinForms.Guna2Button btnFavourite;
+        private Guna.UI2.WinForms.Guna2Button btnMore;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblEnd;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblProcess;
+        private Guna.UI2.WinForms.Guna2TrackBar tbsTimeSong;
+        private Guna.UI2.WinForms.Guna2PictureBox pbPictureSong;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar2;
+        private Guna.UI2.WinForms.Guna2TrackBar tbsVolume;
         private Timer timer1;
-        private Timer timer2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblNameSinger;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSince;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox cpbPictureSinger;
 
         public FormBorderStyle FormBorderStyle { get; private set; }
     }

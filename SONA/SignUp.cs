@@ -78,8 +78,10 @@ namespace SONA
                         string response = reader.ReadString();
                         if (response == "OK")
                         {
+                            SignUpInfor signUpInfor = new SignUpInfor(S, userEmail);
+                            S.pnLogin.Controls.Clear();
+                            S.pnLogin.Controls.Add(signUpInfor);
                             S.Activate();
-                            S.ShowHome(userEmail);
                         }
                         else
                         {

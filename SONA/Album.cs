@@ -17,14 +17,13 @@ namespace SONA
     public partial class Album : UserControl
     {
         private Home h;
-        private string idAlbum, idUser;
+        private string idAlbum;
         private List<string> songIds = new List<string>();
 
-        public Album(Home h, string idAlbum, string idUser)
+        public Album(Home h, string idAlbum)
         {
             this.h = h;
             this.idAlbum = idAlbum;
-            this.idUser = idUser;
             InitializeComponent();
             getIdSongFromAlbum();
         }
@@ -53,7 +52,7 @@ namespace SONA
                         }
                         for (int i = 0; i < count; i++)
                         {
-                            SongSearch songSearch = new SongSearch(h, songIds[i], idUser, songIds);
+                            SongSearch songSearch = new SongSearch(h, songIds[i], songIds);
                             flpSongs.Controls.Add(songSearch);
                         }
                     }

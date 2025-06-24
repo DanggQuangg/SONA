@@ -295,6 +295,18 @@
     <Compile Include="MusicBar.Designer.cs">
       <DependentUpon>MusicBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlaylistChoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlaylistChoice.Designer.cs">
+      <DependentUpon>PlaylistChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaylistsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlaylistsForm.Designer.cs">
+      <DependentUpon>PlaylistsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -395,6 +407,12 @@
     <EmbeddedResource Include="MusicBar.resx">
       <DependentUpon>MusicBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistChoice.resx">
+      <DependentUpon>PlaylistChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaylistsForm.resx">
+      <DependentUpon>PlaylistsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -491,6 +509,8 @@
     <None Include="Resources\FavouriteOn.png" />
     <None Include="Resources\ShuffleOn.png" />
     <None Include="Resources\BaseAvatar.png" />
+    <None Include="Resources\Add2.png" />
+    <None Include="Resources\Checked.png" />
     <Content Include="SONALogo.ico" />
     <None Include="Resources\icons8-hide-30.png" />
     <None Include="Resources\SONA2.png" />

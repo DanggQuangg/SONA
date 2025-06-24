@@ -22,7 +22,6 @@ namespace SONA
         SONA S;
         private ListenMusic currentListenMusic;
         private string emailUser;
-        private string idUser;
 
         public Home(SONA s, string email)
         {
@@ -54,7 +53,7 @@ namespace SONA
 
                     if (response == "OK")
                     {
-                        idUser = reader.ReadString();
+                        User.idUser = reader.ReadString();
                     }
                     else
                     {
@@ -78,7 +77,7 @@ namespace SONA
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
                     writer.Write("getAvatarUser");
-                    writer.Write(idUser);
+                    writer.Write(User.idUser);
 
                     string response = reader.ReadString(); // Nhận phản hồi từ server
                     if (response == "OK")
@@ -125,7 +124,7 @@ namespace SONA
         // Hàm gọi form homeContent chứa các nội dung trong home
         private void Home_Load(object sender, EventArgs e)
         {
-            HomeContent homeContent = new HomeContent(this, idUser);
+            HomeContent homeContent = new HomeContent(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(homeContent);
 
@@ -139,6 +138,7 @@ namespace SONA
         private void btnPlaylists_Click(object sender, EventArgs e)
         {
             MyClick();
+
         }
 
         private void btnFavorited_Click(object sender, EventArgs e)
@@ -151,7 +151,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            Favourite favourite = new Favourite(this, idUser);
+            Favourite favourite = new Favourite(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(favourite);
         }
@@ -166,7 +166,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            AlbumList albumList = new AlbumList(this, idUser);
+            AlbumList albumList = new AlbumList(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(albumList);
         }
@@ -203,7 +203,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            HomeContent home = new HomeContent(this, idUser);
+            HomeContent home = new HomeContent(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(home);
         }
@@ -234,7 +234,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            ArtistList artistList = new ArtistList(this, idUser);
+            ArtistList artistList = new ArtistList(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(artistList);
         }
@@ -260,7 +260,7 @@ namespace SONA
                     currentListenMusic = null;
                 }
 
-                SearchForm searchForm = new SearchForm(this, idUser, txtSearch.Text);
+                SearchForm searchForm = new SearchForm(this, txtSearch.Text);
                 pnMain.Controls.Clear();
                 pnMain.Controls.Add(searchForm);
             }
@@ -283,9 +283,13 @@ namespace SONA
 
         private void cpbUserInfor_Click(object sender, EventArgs e)
         {
-            UserInfor userInfor = new UserInfor(this, S, idUser);
+            UserInfor userInfor = new UserInfor(this, S);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(userInfor);
         }
+    }
+    public static class User
+    {
+        public static string idUser;
     }
 }

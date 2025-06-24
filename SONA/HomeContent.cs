@@ -16,15 +16,13 @@ namespace SONA
     public partial class HomeContent : UserControl
     {
         private Home h;
-        private string idUser;
         private List<string> songIds = new List<string>();
         private List<string> artistIds = new List<string>();
 
-        public HomeContent(Home h, string idUser)
+        public HomeContent(Home h)
         {
             InitializeComponent();
             this.h = h;
-            this.idUser = idUser;
         }
 
         // Hàm liệt kê các danh sách bài hát và nghệ sĩ ngẫu nhiên vào trong panel tương ứng
@@ -61,7 +59,7 @@ namespace SONA
                         }
                         for (int i = 0; i < songCount; i++)
                         {
-                            SongForm songForm = new SongForm(h, songIds[i], idUser, songIds);
+                            SongForm songForm = new SongForm(h, songIds[i], songIds);
                             flpSongs.Controls.Add(songForm);
                         }
                     }
@@ -100,7 +98,7 @@ namespace SONA
                         {
                             string id_singer = reader.ReadString();
                             artistIds.Add(id_singer);
-                            ArtistForm artistForm = new ArtistForm(h, id_singer, idUser);
+                            ArtistForm artistForm = new ArtistForm(h, id_singer);
                             flpArtists.Controls.Add(artistForm);
                         }
                     }
@@ -127,7 +125,7 @@ namespace SONA
 
             foreach (string songId in songIds)
             {
-                SongForm songForm = new SongForm(h, songId, idUser, songIds);
+                SongForm songForm = new SongForm(h, songId,songIds);
                 flpMusic.Controls.Add(songForm);
             }
         }
@@ -143,7 +141,7 @@ namespace SONA
 
             foreach (string artistId in artistIds)
             {
-                ArtistForm artistForm = new ArtistForm(h, artistId, idUser);
+                ArtistForm artistForm = new ArtistForm(h, artistId);
                 flpMusic.Controls.Add(artistForm);
             }
         }

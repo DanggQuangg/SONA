@@ -20,6 +20,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Supabase;
 using Supabase.Storage;
 using System.Runtime.Remoting.Lifetime;
+using Supabase.Gotrue;
 
 namespace SONA_Server
 {
@@ -659,7 +660,7 @@ namespace SONA_Server
                     {
                         writer.Write("Lỗi lấy album: " + ex.Message);
                     }
-                }    
+                }
                 else if (requestType == "listenMusic")
                 {
                     try
@@ -1078,12 +1079,198 @@ namespace SONA_Server
                         writer.Write("Lỗi cập nhật thông tin người dùng: " + ex.Message);
                     }
                 }
+                else if (requestType == "getPlaylistUser")
+                {
+                    int id_user = int.Parse(reader.ReadString());
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string query = "SELECT id_playlist, name_playlist FROM playlists WHERE id_user = @id_user";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_user", id_user);
+                                using (var readerdb = cmd.ExecuteReader())
+                                {
+                                    List<string> playlistIds = new List<string>();
+                                    List<string> playlistNames = new List<string>();
+                                    while (readerdb.Read())
+                                    {
+                                        playlistIds.Add(readerdb["id_playlist"].ToString());
+                                        playlistNames.Add(readerdb["name_playlist"].ToString());
+                                    }
+                                    writer.Write("OK");
+                                    writer.Write(playlistIds.Count);
+                                    for (int i = 0; i < playlistIds.Count; i++)
+                                    {
+                                        writer.Write(playlistIds[i]);
+                                        writer.Write(playlistNames[i]);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi lấy danh sách playlist: " + ex.Message);
+                    }
+                }
+                else if (requestType == "insertSongToPlaylist")
+                {
+                    int id_playlist = int.Parse(reader.ReadString());
+                    int id_song = int.Parse(reader.ReadString());
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string query = "INSERT INTO playlist_songs (id_playlist, id_song) VALUES (@id_playlist, @id_song)";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_playlist", id_playlist);
+                                cmd.Parameters.AddWithValue("@id_song", id_song);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        writer.Write("OK");
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi thêm bài hát vào playlist: " + ex.Message);
+                    }
+                }
+                else if (requestType == "deleteSongFromPlaylist")
+                {
+                    int id_playlist = int.Parse(reader.ReadString());
+                    int id_song = int.Parse(reader.ReadString());
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string query = "DELETE FROM playlist_songs WHERE id_playlist = @id_playlist AND id_song = @id_song";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_playlist", id_playlist);
+                                cmd.Parameters.AddWithValue("@id_song", id_song);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        writer.Write("OK");
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi xóa bài hát khỏi playlist: " + ex.Message);
+                    }
+                }
+                //else if (requestType == "getSongsFromPlaylist")
+                //{
+                //    int id_playlist = int.Parse(reader.ReadString());
+                //    try
+                //    {
+                //        using (var conn = new NpgsqlConnection(connSona))
+                //        {
+                //            conn.Open();
+                //            string query = "SELECT songs.id_song, songs.name_song, songs.picture_song FROM playlist_songs INNER JOIN songs ON playlist_songs.id_song = songs.id_song WHERE playlist_songs.id_playlist = @id_playlist";
+                //            using (var cmd = new NpgsqlCommand(query, conn))
+                //            {
+                //                cmd.Parameters.AddWithValue("@id_playlist", id_playlist);
+                //                using (var readerdb = cmd.ExecuteReader())
+                //                {
+                //                    List<string> songIds = new List<string>();
+                //                    List<string> songNames = new List<string>();
+                //                }
+                //            }
+                //        }
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        writer.Write("Lỗi lấy bài hát từ playlist: " + ex.Message);
+                //    }
+                //}
+                else if (requestType == "createNewPlaylist")
+                {
+                    string UserID = reader.ReadString();
+                    string playlistName = reader.ReadString();
+                    string songID = reader.ReadString();
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+
+                            // Insert playlist và lấy id_playlist mới
+                            string insertPlaylistQuery = "INSERT INTO playlists (id_user, name_playlist) VALUES (@id_user, @name_playlist) RETURNING id_playlist";
+                            int newPlaylistId;
+
+                            using (var cmd = new NpgsqlCommand(insertPlaylistQuery, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_user", int.Parse(UserID)); 
+                                cmd.Parameters.AddWithValue("@name_playlist", playlistName);
+
+                                newPlaylistId = (int)cmd.ExecuteScalar(); // lấy id trả về
+                            }
+
+                            // Insert vào playlist_songs
+                            string insertSongQuery = "INSERT INTO playlist_songs (id_playlist, id_song) VALUES (@id_playlist, @id_song)";
+                            using (var cmd2 = new NpgsqlCommand(insertSongQuery, conn))
+                            {
+                                cmd2.Parameters.AddWithValue("@id_playlist", newPlaylistId);
+                                cmd2.Parameters.AddWithValue("@id_song", int.Parse(songID)); 
+                                cmd2.ExecuteNonQuery();
+                            }
+
+                            writer.Write("OK");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi thêm bài hát vào playlist: " + ex.Message);
+                    }
+                }
+                else if (requestType == "checkSongInPlaylist")
+                {
+                    int id_playlist = reader.ReadInt32();
+                    int id_song = reader.ReadInt32();
+
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+
+                            // Kiểm tra xem đã có bài hát trong playlist chưa
+                            string query = "SELECT COUNT(*) FROM playlist_songs WHERE id_song = @id_song AND id_playlist = @id_playlist";
+
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_playlist", id_playlist);
+                                cmd.Parameters.AddWithValue("@id_song", id_song);
+
+                                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                                if (count > 0)
+                                {
+                                    writer.Write("EXISTS"); // đã tồn tại
+                                }
+                                else
+                                {
+                                    writer.Write("NOT_EXISTS"); // chưa tồn tại
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi kiểm tra bài hát trong playlist: " + ex.Message);
+                    }
+                }
                 else
                 {
                     writer.Write("Yêu cầu không hợp lệ!");
                 }
             }
-
             catch (Exception ex)
             {
                 if (clientInfor != null)

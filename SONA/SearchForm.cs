@@ -15,16 +15,14 @@ namespace SONA
     public partial class SearchForm : UserControl
     {
         private Home h;
-        private string idUser;
         private List<string> songIds = new List<string>();
         private List<string> artistIds = new List<string>();
         string searchText;
 
-        public SearchForm(Home h, string idUser, string searchText)
+        public SearchForm(Home h, string searchText)
         {
             InitializeComponent();
             this.h = h;
-            this.idUser = idUser;
             this.searchText = searchText;
         }
         private void SearchSong()
@@ -50,7 +48,7 @@ namespace SONA
                     }
                     for (int i = 0; i < songCount; i++)
                     {
-                        SongForm songForm = new SongForm(h, songIds[i], idUser, songIds);
+                        SongForm songForm = new SongForm(h, songIds[i], songIds);
                         flpResult.Controls.Add(songForm);
                     }
                 }
@@ -94,7 +92,7 @@ namespace SONA
                         {
                             string id_singer = reader.ReadString();
                             artistIds.Add(id_singer);
-                            ArtistForm artistForm = new ArtistForm(h, id_singer, idUser);
+                            ArtistForm artistForm = new ArtistForm(h, id_singer);
                             flpResult.Controls.Add(artistForm);
                         }
                     }

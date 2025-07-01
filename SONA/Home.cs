@@ -31,6 +31,12 @@ namespace SONA
             InitializeComponent();
             getIdUser();
             getAvatarUser();
+            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+            autoSource.AddRange(ConsSong.songNameList.ToArray());
+
+            txtSearch.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtSearch.AutoCompleteCustomSource = autoSource;
         }
 
         private void getIdUser()
@@ -254,7 +260,7 @@ namespace SONA
                     currentListenMusic = null;
                 }
 
-                SearchForm searchForm = new SearchForm(this, idUser);
+                SearchForm searchForm = new SearchForm(this, idUser, txtSearch.Text);
                 pnMain.Controls.Clear();
                 pnMain.Controls.Add(searchForm);
             }

@@ -18,73 +18,78 @@ namespace SONA
         private string idUser;
         private List<string> songIds = new List<string>();
         private List<string> artistIds = new List<string>();
+        string searchText;
 
-        public SearchForm(Home h, string idUser)
+        public SearchForm(Home h, string idUser, string searchText)
         {
             InitializeComponent();
             this.h = h;
             this.idUser = idUser;
+            this.searchText = searchText;
+        }
+        private void SearchSong()
+        {
+            flpResult.Controls.Clear();
+            using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+            using (NetworkStream stream = client.GetStream())
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            using (BinaryReader reader = new BinaryReader(stream))
+            {
+                writer.Write("getIDSearchSong");
+                writer.Write(searchText);
+                string response = reader.ReadString();
+                if (response == "OK")
+                {
+                    int songCount = reader.ReadInt32(); // Đọc số lượng bài hát
+
+                    for (int i = 0; i < songCount; i++)
+                    {
+                        string id_song = reader.ReadString();
+                        songIds.Add(id_song);
+
+                    }
+                    for (int i = 0; i < songCount; i++)
+                    {
+                        SongForm songForm = new SongForm(h, songIds[i], idUser, songIds);
+                        flpResult.Controls.Add(songForm);
+                    }
+                }
+                else
+                {
+                    
+                }
+            }
         }
 
-        private void getIDSong()
+        private void SearchForm_Load(object sender, EventArgs e)
+        {
+            SearchSong();
+        }
+
+        private void btnSongs_Click(object sender, EventArgs e)
+        {
+            SearchSong();
+        }
+
+        private void btnArtists_Click(object sender, EventArgs e)
         {
             try
             {
                 flpResult.Controls.Clear();
-                Title title = new Title("Songs:");
-                flpResult.Controls.Add(title);
 
                 using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
                 using (NetworkStream stream = client.GetStream())
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    writer.Write("getIDSong");
+                    writer.Write("getIDSearchArtis");
+                    writer.Write(searchText);
                     string response = reader.ReadString();
 
-                    if (response == "OK")
-                    {
-                        int songCount = reader.ReadInt32();
-                        for (int i = 0; i < songCount; i++)
-                        {
-                            string id_song = reader.ReadString();
-                            songIds.Add(id_song);
-                        }
-                        foreach (var songId in songIds)
-                        {
-                            SongSearch songSearch = new SongSearch(h, songId, idUser, songIds);
-                            flpResult.Controls.Add(songSearch);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(response);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error connecting to server: " + ex.Message);
-            }
-        }
-
-        private void getIDSinger()
-        {
-            try
-            {
-                Title title = new Title("Singers:");
-                flpResult.Controls.Add(title);
-
-                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
-                using (NetworkStream stream = client.GetStream())
-                using (BinaryWriter writer = new BinaryWriter(stream))
-                using (BinaryReader reader = new BinaryReader(stream))
-                {
-                    writer.Write("getIDSinger");
-                    string response = reader.ReadString();
                     if (response == "OK")
                     {
                         int singerCount = reader.ReadInt32();
+
                         for (int i = 0; i < singerCount; i++)
                         {
                             string id_singer = reader.ReadString();
@@ -95,71 +100,13 @@ namespace SONA
                     }
                     else
                     {
-                        MessageBox.Show(response);
+                        MessageBox.Show(response); // Hiển thị lỗi từ server
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error connecting to server: " + ex.Message);
-            }
-        }
-
-        private void SearchForm_Load(object sender, EventArgs e)
-        {
-            getIDSong();
-            getIDSinger();
-        }
-
-        private void btnSongs_Click(object sender, EventArgs e)
-        {
-            Title title = new Title("Songs:");
-
-            flpResult.Controls.Clear();
-            flpResult.Controls.Add(title);
-            
-            foreach (var songId in songIds)
-            {
-                SongSearch songSearch = new SongSearch(h, songId, idUser, songIds);
-                flpResult.Controls.Add(songSearch);
-            }
-        }
-
-        private void btnArtists_Click(object sender, EventArgs e)
-        {
-            Title title = new Title("Singers:");
-
-            flpResult.Controls.Clear();
-            flpResult.Controls.Add(title);
-
-            foreach (var artistId in artistIds)
-            {
-                ArtistForm artistForm = new ArtistForm(h, artistId, idUser);
-                flpResult.Controls.Add(artistForm);
-            }
-        }
-
-        private void btnAll_Click(object sender, EventArgs e)
-        {
-            Title title = new Title("Songs:");
-
-            flpResult.Controls.Clear();
-            flpResult.Controls.Add(title);
-
-            foreach (var songId in songIds)
-            {
-                SongSearch songSearch = new SongSearch(h, songId, idUser, songIds);
-                flpResult.Controls.Add(songSearch);
-            }
-
-            title = new Title("Singers:");
-            flpResult.Controls.Add(title);
-
-            foreach (var artistId in artistIds)
-            {
-                ArtistForm artistForm = new ArtistForm(h, artistId, idUser);
-                flpResult.Controls.Add(artistForm);
-
             }
         }
     }

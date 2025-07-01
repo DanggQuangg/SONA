@@ -75,9 +75,9 @@ namespace SONA_Server
                 {
                     TcpClient client = server.AcceptTcpClient(); // Chấp nhận kết nối từ client trả về một TcpClient
 
-                    // Lấy địa chỉ IP của client và thêm vào ListView
-                    string clientIP = ((IPEndPoint)client.Client.RemoteEndPoint).ToString();
-                    AddToListView($"New client connected from: {clientIP}");
+                    //// Lấy địa chỉ IP của client và thêm vào ListView
+                    //string clientIP = ((IPEndPoint)client.Client.RemoteEndPoint).ToString();
+                    //AddToListView($"New client connected from: {clientIP}");
 
                     // Tạo một luồng mới để xử lý client qua phương thức HandleClient
                     Thread clientThread = new Thread(HandleClient);
@@ -447,7 +447,126 @@ namespace SONA_Server
                     {
                         writer.Write("Lỗi lấy id bài hát từ album: " + ex.Message);
                     }
-                }    
+                }
+                else if (requestType == "getIDSearchSong")
+                {
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string keyword = reader.ReadString(); // Đọc từ khóa tìm kiếm từ client
+                            string query = "SELECT id_song FROM songs WHERE name_song ILIKE @keyword";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                                using (var readerdb = cmd.ExecuteReader())
+                                {
+                                    List<string> songIds = new List<string>();
+
+                                    while (readerdb.Read())
+                                    {
+                                        songIds.Add(readerdb["id_song"].ToString());
+                                    }
+
+                                    if (songIds.Count == 0)
+                                    {
+                                        writer.Write("Không tìm thấy bài hát nào trong cơ sở dữ liệu.");
+                                        return;
+                                    }
+
+                                    writer.Write("OK");
+                                    writer.Write(songIds.Count);
+
+                                    foreach (var id in songIds)
+                                    {
+                                        writer.Write(id);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi lấy id bài hát: " + ex.Message);
+                    }
+                }
+                else if (requestType == "getIDSearchArtis")
+                {
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string keyword = reader.ReadString(); // Đọc từ khóa tìm kiếm từ client
+                            string query = "SELECT id_singer FROM singer WHERE name_singer ILIKE @keyword";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                                using (var readerdb = cmd.ExecuteReader())
+                                {
+                                    List<string> singerIds = new List<string>();
+                                    while (readerdb.Read())
+                                    {
+                                        singerIds.Add(readerdb["id_singer"].ToString());
+                                    }
+
+                                    if (singerIds.Count == 0)
+                                    {
+                                        writer.Write("Không tìm thấy nghệ sĩ nào trong cơ sở dữ liệu.");
+                                        return;
+                                    }
+
+                                    writer.Write("OK");
+                                    writer.Write(singerIds.Count);
+
+                                    foreach (var id in singerIds)
+                                    {
+                                        writer.Write(id);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi lấy id nghệ sĩ: " + ex.Message);
+                    }
+                }
+                else if (requestType == "getAllSongName")
+                {
+                    try
+                    {
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string query = "SELECT name_song FROM songs";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                using (var readerdb = cmd.ExecuteReader())
+                                {
+                                    List<string> songName = new List<string>();
+
+                                    while (readerdb.Read())
+                                    {
+                                        songName.Add(readerdb["name_song"].ToString());
+                                    }
+                                    writer.Write("OK");
+                                    writer.Write(songName.Count);
+
+                                    foreach (var id in songName)
+                                    {
+                                        writer.Write(id);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi lấy id bài hát: " + ex.Message);
+                    }
+                }
                 else if (requestType == "songForm")
                 {
                     try

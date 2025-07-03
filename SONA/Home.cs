@@ -19,24 +19,85 @@ namespace SONA
 {
     public partial class Home : UserControl
     {
-        SONA S;
+        private SONA S;
         private ListenMusic currentListenMusic;
+        
         private string emailUser;
-        private string idUser;
+        private List<string> songNames;
+        private List<string> singerNames;
+
 
         public Home(SONA s, string email)
         {
             S = s;
             emailUser = email;
+            songNames = new List<string>();
+            singerNames = new List<string>();
+
             InitializeComponent();
             getIdUser();
             getAvatarUser();
-            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
-            autoSource.AddRange(ConsSong.songNameList.ToArray());
+            getSongName();
+            getSingerName();
 
-            txtSearch.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+            autoSource.AddRange(songNames.ToArray());
+            autoSource.AddRange(singerNames.ToArray());
             txtSearch.AutoCompleteCustomSource = autoSource;
+        }
+
+        private void getSongName()
+        {
+            using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+            using (NetworkStream stream = client.GetStream())
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            using (BinaryReader reader = new BinaryReader(stream))
+            {
+                writer.Write("getAllSongName");
+                string response = reader.ReadString();
+
+                if (response == "OK")
+                {
+                    int songCount = reader.ReadInt32();
+
+                    for (int i = 0; i < songCount; i++)
+                    {
+                        string songName = reader.ReadString();
+                        songNames.Add(songName);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(response);
+                }
+            }
+        }
+
+        private void getSingerName()
+        {
+            using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+            using (NetworkStream stream = client.GetStream())
+            using (BinaryWriter writer = new BinaryWriter(stream))
+            using (BinaryReader reader = new BinaryReader(stream))
+            {
+                writer.Write("getAllSingerName");
+                string response = reader.ReadString();
+
+                if (response == "OK")
+                {
+                    int singerCount = reader.ReadInt32();
+
+                    for (int i = 0; i < singerCount; i++)
+                    {
+                        string singerName = reader.ReadString();
+                        singerNames.Add(singerName);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(response);
+                }
+            }
         }
 
         private void getIdUser()
@@ -54,7 +115,7 @@ namespace SONA
 
                     if (response == "OK")
                     {
-                        idUser = reader.ReadString();
+                        User.idUser = reader.ReadString();
                     }
                     else
                     {
@@ -78,7 +139,7 @@ namespace SONA
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
                     writer.Write("getAvatarUser");
-                    writer.Write(idUser);
+                    writer.Write(User.idUser);
 
                     string response = reader.ReadString(); // Nhận phản hồi từ server
                     if (response == "OK")
@@ -125,7 +186,7 @@ namespace SONA
         // Hàm gọi form homeContent chứa các nội dung trong home
         private void Home_Load(object sender, EventArgs e)
         {
-            HomeContent homeContent = new HomeContent(this, idUser);
+            HomeContent homeContent = new HomeContent(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(homeContent);
 
@@ -139,6 +200,7 @@ namespace SONA
         private void btnPlaylists_Click(object sender, EventArgs e)
         {
             MyClick();
+
         }
 
         private void btnFavorited_Click(object sender, EventArgs e)
@@ -151,7 +213,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            Favourite favourite = new Favourite(this, idUser);
+            Favourite favourite = new Favourite(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(favourite);
         }
@@ -166,7 +228,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            AlbumList albumList = new AlbumList(this, idUser);
+            AlbumList albumList = new AlbumList(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(albumList);
         }
@@ -203,7 +265,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            HomeContent home = new HomeContent(this, idUser);
+            HomeContent home = new HomeContent(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(home);
         }
@@ -218,6 +280,12 @@ namespace SONA
         private void btnChat_Click(object sender, EventArgs e)
         {
             MyClick();
+
+            if (currentListenMusic != null)
+            {
+                currentListenMusic.StopMusicAndDispose();
+                currentListenMusic = null;
+            }
 
             ChatForm chatForm = new ChatForm(emailUser);
             pnMain.Controls.Clear();
@@ -234,7 +302,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            ArtistList artistList = new ArtistList(this, idUser);
+            ArtistList artistList = new ArtistList(this);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(artistList);
         }
@@ -260,7 +328,7 @@ namespace SONA
                     currentListenMusic = null;
                 }
 
-                SearchForm searchForm = new SearchForm(this, idUser, txtSearch.Text);
+                SearchForm searchForm = new SearchForm(this, txtSearch.Text);
                 pnMain.Controls.Clear();
                 pnMain.Controls.Add(searchForm);
             }
@@ -283,9 +351,19 @@ namespace SONA
 
         private void cpbUserInfor_Click(object sender, EventArgs e)
         {
-            UserInfor userInfor = new UserInfor(this, S, idUser);
+            if (currentListenMusic != null)
+            {
+                currentListenMusic.StopMusicAndDispose();
+                currentListenMusic = null;
+            }
+
+            UserInfor userInfor = new UserInfor(this, S);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(userInfor);
         }
+    }
+    public static class User
+    {
+        public static string idUser;
     }
 }

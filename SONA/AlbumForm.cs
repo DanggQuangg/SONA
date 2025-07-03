@@ -17,14 +17,13 @@ namespace SONA
     public partial class AlbumForm: UserControl
     {
         private Home h;
-        private string idAlbum, idUser;
+        private string idAlbum;
 
-        public AlbumForm(Home h, string idAlbum, string idUser)
+        public AlbumForm(Home h, string idAlbum)
         {
             InitializeComponent();
             this.h = h;
             this.idAlbum = idAlbum;
-            this.idUser = idUser;
         }
 
         private async void AlbumForm_Load(object sender, EventArgs e)
@@ -77,7 +76,7 @@ namespace SONA
 
         private void btnPictureAlbum_Click(object sender, EventArgs e)
         {
-            Album album = new Album(h, idAlbum, idUser);
+            Album album = new Album(h, idAlbum);
             h.pnMain.Controls.Clear();
             h.pnMain.Controls.Add(album);
         }

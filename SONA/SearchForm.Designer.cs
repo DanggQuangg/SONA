@@ -32,6 +32,7 @@
             this.flpResult = new System.Windows.Forms.FlowLayoutPanel();
             this.pnHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnArtists = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAll = new Guna.UI2.WinForms.Guna2Button();
             this.btnSongs = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.pnHeader.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.pnHeader.Controls.Add(this.btnArtists);
+            this.pnHeader.Controls.Add(this.btnAll);
             this.pnHeader.Controls.Add(this.btnSongs);
             this.pnHeader.Location = new System.Drawing.Point(4, 3);
             this.pnHeader.Name = "pnHeader";
@@ -80,12 +82,35 @@
             this.btnArtists.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.btnArtists.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtists.ForeColor = System.Drawing.Color.White;
-            this.btnArtists.Location = new System.Drawing.Point(133, 13);
+            this.btnArtists.Location = new System.Drawing.Point(173, 13);
             this.btnArtists.Name = "btnArtists";
             this.btnArtists.Size = new System.Drawing.Size(106, 33);
             this.btnArtists.TabIndex = 9;
             this.btnArtists.Text = "Artists";
             this.btnArtists.Click += new System.EventHandler(this.btnArtists_Click);
+            // 
+            // btnAll
+            // 
+            this.btnAll.Animated = true;
+            this.btnAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnAll.BorderRadius = 8;
+            this.btnAll.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnAll.Checked = true;
+            this.btnAll.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnAll.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.btnAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnAll.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAll.ForeColor = System.Drawing.Color.White;
+            this.btnAll.Location = new System.Drawing.Point(16, 13);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(55, 33);
+            this.btnAll.TabIndex = 11;
+            this.btnAll.Text = "All";
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnSongs
             // 
@@ -93,7 +118,6 @@
             this.btnSongs.BackColor = System.Drawing.Color.Transparent;
             this.btnSongs.BorderRadius = 8;
             this.btnSongs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnSongs.Checked = true;
             this.btnSongs.CheckedState.FillColor = System.Drawing.Color.White;
             this.btnSongs.CheckedState.ForeColor = System.Drawing.Color.Black;
             this.btnSongs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -101,9 +125,9 @@
             this.btnSongs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSongs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSongs.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.btnSongs.Font = new System.Drawing.Font("Segoe UI", 10.8F);
+            this.btnSongs.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSongs.ForeColor = System.Drawing.Color.White;
-            this.btnSongs.Location = new System.Drawing.Point(22, 13);
+            this.btnSongs.Location = new System.Drawing.Point(77, 13);
             this.btnSongs.Name = "btnSongs";
             this.btnSongs.Size = new System.Drawing.Size(90, 33);
             this.btnSongs.TabIndex = 10;
@@ -130,6 +154,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel pnHeader;
         private Guna.UI2.WinForms.Guna2Button btnArtists;
+        private Guna.UI2.WinForms.Guna2Button btnAll;
         private Guna.UI2.WinForms.Guna2Button btnSongs;
         private System.Windows.Forms.FlowLayoutPanel flpResult;
     }

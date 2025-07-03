@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Guna.UI2.WinForms;
 using System.IO;
 using System.Net.Sockets;
+using Npgsql.Internal.TypeHandlers.LTreeHandlers;
 
 namespace SONA
 {
@@ -27,18 +28,19 @@ namespace SONA
         private bool isShuffled = false;
         private TimeSpan lastPosition;
 
+        List<string> playlistNames = new List<string>();
+        private List<string> playlistID;
         private List<string> songIds;
         private List<string> originalSongIds; // Danh sách bài hát gốc để sử dụng khi tắt chế độ xáo trộn
 
         private string id_song, picture_song, am_thanh, id_singer, name_singer, picture_singer, birthdate;
-        private string idUser;
         private bool isFavorited = false;
 
-        public ListenMusic(Home h, string id_song, string idUser, List<string> songIds)
+        public ListenMusic(Home h, string id_song, List<string> songIds)
         {
             this.h = h;
             this.id_song = id_song;
-            this.idUser = idUser;
+            this.playlistID = new List<string>();
             this.songIds = new List<string>(songIds);
             this.originalSongIds = new List<string>(songIds);
 
@@ -91,8 +93,8 @@ namespace SONA
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    writer.Write("songFavurite");
-                    writer.Write(idUser);
+                    writer.Write("songFavourite");
+                    writer.Write(User.idUser);
                     writer.Write(id_song);
 
                     string response = reader.ReadString();
@@ -280,7 +282,7 @@ namespace SONA
                     if (!isFavorited)
                     {
                         writer.Write("addFavourite");
-                        writer.Write(idUser);
+                        writer.Write(User.idUser);
                         writer.Write(id_song);
 
                         string response = reader.ReadString();
@@ -299,7 +301,7 @@ namespace SONA
                     else
                     {
                         writer.Write("removeFavourite");
-                        writer.Write(idUser);
+                        writer.Write(User.idUser);
                         writer.Write(id_song);
 
                         string response = reader.ReadString();
@@ -448,6 +450,86 @@ namespace SONA
                 btnPlayMusic.Checked = true;
             }
         }
+        private void btnPlaylist_Click(object sender, EventArgs e)
+        {
+            pnlPlaylist.Controls.Clear(); // Xóa các điều khiển cũ trong panel
+            pnlPlaylist.Controls.Add(new PlaylistChoice(this));
+            try
+            {
+                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+                using (NetworkStream stream = client.GetStream())
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    writer.Write("getPlaylistUser");
+                    writer.Write(User.idUser);
+                    string response = reader.ReadString();
+                    if (response == "OK")
+                    {
+                        int playlistCount = reader.ReadInt32(); // Đọc số lượng Playlist
+
+                        for (int i = 0; i < playlistCount; i++)
+                        {
+                            string id_playlist = reader.ReadString();
+                            string playlistName = reader.ReadString();
+
+                            playlistID.Add(id_playlist);
+                            playlistNames.Add(playlistName);
+                        }
+                        for (int i = 0; i < playlistCount; i++)
+                        {
+                            PlaylistChoice playlist = new PlaylistChoice(h, playlistID[i], playlistNames[i], id_song);
+                            pnlPlaylist.Controls.Add(playlist);
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                    pnlPlaylist.Visible = true; // Hiển thị panel chứa danh sách Playlist\
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to server: " + ex.Message);
+            }
+        }
+
+        private void btnOkPlaylist_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+                using (NetworkStream stream = client.GetStream())
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    writer.Write("createNewPlaylist");
+                    writer.Write(User.idUser);
+                    writer.Write(tbPlaylistName.Text);
+                    writer.Write(id_song);
+                    string response = reader.ReadString();
+                    if (response == "OK")
+                    {
+                        MessageBox.Show("Song added to playlist successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error adding song to playlist: " + response);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to server: " + ex.Message);
+            }
+        }
+
+        private void btnHuyPlaylist_Click(object sender, EventArgs e)
+        {
+            tbPlaylistName.Text = string.Empty; // Xóa nội dung TextBox
+            pnlPlaylist.Visible = false; // Ẩn panel chứa danh sách Playlist    
+        }
 
         // Hàm cập nhật thanh thời gian và lấy thời gian bài hát
         private void timer1_Tick(object sender, EventArgs e)
@@ -538,7 +620,7 @@ namespace SONA
         {
             StopMusicAndDispose();
             h.pnMain.Controls.Clear();
-            h.pnMain.Controls.Add(new ArtistInfor(h, id_singer, idUser));
+            h.pnMain.Controls.Add(new ArtistInfor(h, id_singer));
         }
     }
 }

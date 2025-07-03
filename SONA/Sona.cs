@@ -13,7 +13,6 @@ using System.Windows.Forms;
 
 namespace SONA
 {
-
     public partial class SONA : Form
     {
         private Home home;
@@ -24,7 +23,6 @@ namespace SONA
             InitializeComponent();
             ShowLogin();
             GetIP();
-            GetSongName();
         }
         private void GetIP()
         {
@@ -38,32 +36,6 @@ namespace SONA
                     {
                         IPAddressServer.serverIP = result.ToString();
                     }
-                }
-            }
-        }
-        private void GetSongName()
-        {
-            using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
-            using (NetworkStream stream = client.GetStream())
-            using (BinaryWriter writer = new BinaryWriter(stream))
-            using (BinaryReader reader = new BinaryReader(stream))
-            {
-                writer.Write("getAllSongName");
-                string response = reader.ReadString();
-
-                if (response == "OK")
-                {
-                    int singerCount = reader.ReadInt32();
-
-                    for (int i = 0; i < singerCount; i++)
-                    {
-                        string songName = reader.ReadString();
-                        ConsSong.songNameList.Add(songName);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(response); // Hiển thị lỗi từ server
                 }
             }
         }
@@ -101,9 +73,5 @@ namespace SONA
     public static class IPAddressServer
     {
         public static string serverIP;
-    }
-    public static class ConsSong
-    {
-        public static List<string> songNameList = new List<string>(); 
     }
 }

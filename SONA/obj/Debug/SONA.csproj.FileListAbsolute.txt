@@ -385,3 +385,8 @@ C:\Study\tinyProject\SONA\SONA\obj\Debug\SONA.csproj.Up2Date
 C:\Study\tinyProject\SONA\SONA\obj\Debug\SONA.exe
 C:\Study\tinyProject\SONA\SONA\obj\Debug\SONA.pdb
 >>>>>>> 0637d2f5edb13f1c410e0e3091dafefdd82cdd99
+C:\Study\tinyProject\SONA\SONA\obj\Debug\SONA.PlaylistsForm.resources
+C:\Study\tinyProject\SONA\SONA\obj\Debug\SONA.PlaylistChoice.resources
+>>>>>>> b52b6f0e9583f84900acd09a997e0f2316df157f
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.PlaylistChoice.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.PlaylistsForm.resources

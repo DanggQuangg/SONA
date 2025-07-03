@@ -93,6 +93,16 @@ namespace SONA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add2 {
+            get {
+                object obj = ResourceManager.GetObject("Add2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddSong {
             get {
                 object obj = ResourceManager.GetObject("AddSong", resourceCulture);
@@ -156,6 +166,16 @@ namespace SONA.Properties {
         internal static System.Drawing.Bitmap Chat {
             get {
                 object obj = ResourceManager.GetObject("Chat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Checked {
+            get {
+                object obj = ResourceManager.GetObject("Checked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

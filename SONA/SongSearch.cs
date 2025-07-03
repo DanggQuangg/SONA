@@ -21,13 +21,11 @@ namespace SONA
 
         private List<string> songIds;
         private string id_song, name_song, picture_song, id_singer, name_singer;
-        private string idUser;
 
-        public SongSearch(Home h, string id_song, string idUser, List<string> songIds)
+        public SongSearch(Home h, string id_song, List<string> songIds)
         {
             this.h = h;
             this.id_song = id_song;
-            this.idUser = idUser;
             this.songIds = new List<string>(songIds);
 
             InitializeComponent();
@@ -70,7 +68,7 @@ namespace SONA
         // Hàm gọi form ListenMusic để phát nhạc
         private void btnPictureSong_Click(object sender, EventArgs e)
         {
-            ListenMusic listenMusic = new ListenMusic(h, id_song, idUser, songIds);
+            ListenMusic listenMusic = new ListenMusic(h, id_song, songIds);
             h.pnMain.Controls.Clear();
             h.pnMain.Controls.Add(listenMusic);
             h.SetCurrentListenMusic(listenMusic);
@@ -78,7 +76,7 @@ namespace SONA
 
         private void lblNameSinger_Click(object sender, EventArgs e)
         {
-            ArtistInfor artistInfor = new ArtistInfor(h, id_singer, idUser);
+            ArtistInfor artistInfor = new ArtistInfor(h, id_singer);
             h.pnMain.Controls.Clear();
             h.pnMain.Controls.Add(artistInfor);
         }
@@ -92,8 +90,8 @@ namespace SONA
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    writer.Write("songFavurite");
-                    writer.Write(idUser);
+                    writer.Write("songFavourite");
+                    writer.Write(User.idUser);
                     writer.Write(id_song);
 
                     string response = reader.ReadString();
@@ -131,7 +129,7 @@ namespace SONA
                     if (!isFavorited)
                     {
                         writer.Write("addFavourite");
-                        writer.Write(idUser);
+                        writer.Write(User.idUser);
                         writer.Write(id_song);
 
                         string response = reader.ReadString();
@@ -150,7 +148,7 @@ namespace SONA
                     else
                     {
                         writer.Write("removeFavourite");
-                        writer.Write(idUser);
+                        writer.Write(User.idUser);
                         writer.Write(id_song);
 
                         string response = reader.ReadString();

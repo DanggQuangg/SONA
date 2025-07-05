@@ -28,49 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbPlaylistName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPicturePlaylist = new Guna.UI2.WinForms.Guna2Button();
+            this.lblNamePlaylist = new System.Windows.Forms.Label();
+            this.btnCheck = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
-            // lbPlaylistName
+            // btnPicturePlaylist
             // 
-            this.lbPlaylistName.BackColor = System.Drawing.Color.Transparent;
-            this.lbPlaylistName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPlaylistName.ForeColor = System.Drawing.Color.White;
-            this.lbPlaylistName.Location = new System.Drawing.Point(55, 14);
-            this.lbPlaylistName.Name = "lbPlaylistName";
-            this.lbPlaylistName.Size = new System.Drawing.Size(75, 25);
-            this.lbPlaylistName.TabIndex = 4;
-            this.lbPlaylistName.Text = "Attention";
+            this.btnPicturePlaylist.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPicturePlaylist.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPicturePlaylist.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPicturePlaylist.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPicturePlaylist.FillColor = System.Drawing.Color.White;
+            this.btnPicturePlaylist.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPicturePlaylist.ForeColor = System.Drawing.Color.White;
+            this.btnPicturePlaylist.Location = new System.Drawing.Point(3, 5);
+            this.btnPicturePlaylist.Name = "btnPicturePlaylist";
+            this.btnPicturePlaylist.Size = new System.Drawing.Size(50, 50);
+            this.btnPicturePlaylist.TabIndex = 0;
             // 
-            // btnAdd
+            // lblNamePlaylist
             // 
-            this.btnAdd.Animated = true;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdd.FillColor = System.Drawing.Color.Transparent;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::SONA.Properties.Resources.add_circle;
-            this.btnAdd.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnAdd.Location = new System.Drawing.Point(9, 8);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(34, 34);
-            this.btnAdd.TabIndex = 1;
+            this.lblNamePlaylist.AutoSize = true;
+            this.lblNamePlaylist.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.lblNamePlaylist.ForeColor = System.Drawing.Color.White;
+            this.lblNamePlaylist.Location = new System.Drawing.Point(71, 16);
+            this.lblNamePlaylist.Name = "lblNamePlaylist";
+            this.lblNamePlaylist.Size = new System.Drawing.Size(76, 23);
+            this.lblNamePlaylist.TabIndex = 1;
+            this.lblNamePlaylist.Text = "Playlist 1";
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Animated = true;
+            this.btnCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheck.CheckedState.Image = global::SONA.Properties.Resources.CheckOn;
+            this.btnCheck.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheck.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCheck.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCheck.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCheck.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCheck.FillColor = System.Drawing.Color.Transparent;
+            this.btnCheck.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCheck.ForeColor = System.Drawing.Color.White;
+            this.btnCheck.Image = global::SONA.Properties.Resources.CheckOff;
+            this.btnCheck.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnCheck.Location = new System.Drawing.Point(214, 12);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(34, 34);
+            this.btnCheck.TabIndex = 4;
             // 
             // PlaylistChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(6)))), ((int)(((byte)(6)))), ((int)(((byte)(6)))));
-            this.Controls.Add(this.lbPlaylistName);
-            this.Controls.Add(this.btnAdd);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.Controls.Add(this.btnCheck);
+            this.Controls.Add(this.lblNamePlaylist);
+            this.Controls.Add(this.btnPicturePlaylist);
             this.Name = "PlaylistChoice";
-            this.Size = new System.Drawing.Size(260, 54);
+            this.Size = new System.Drawing.Size(260, 59);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,7 +95,8 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button btnAdd;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lbPlaylistName;
+        private Guna.UI2.WinForms.Guna2Button btnPicturePlaylist;
+        private System.Windows.Forms.Label lblNamePlaylist;
+        private Guna.UI2.WinForms.Guna2Button btnCheck;
     }
 }

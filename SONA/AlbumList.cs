@@ -26,7 +26,7 @@ namespace SONA
         {
             try
             {
-                Title title = new Title("Albums:");
+                Title title = new Title("All albums:");
                 flpAlbum.Controls.Clear();
                 flpAlbum.Controls.Add(title);
 

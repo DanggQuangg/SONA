@@ -17,20 +17,24 @@ using System.Windows.Forms;
 
 namespace SONA
 {
+    public static class User
+    {
+        public static string idUser;
+        public static string emailUser;
+    }
+
     public partial class Home : UserControl
     {
         private SONA S;
         private ListenMusic currentListenMusic;
         
-        private string emailUser;
-        private List<string> songNames;
-        private List<string> singerNames;
-
+        public List<string> songNames;
+        public List<string> singerNames;
 
         public Home(SONA s, string email)
         {
             S = s;
-            emailUser = email;
+            User.emailUser = email;
             songNames = new List<string>();
             singerNames = new List<string>();
 
@@ -110,7 +114,7 @@ namespace SONA
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
                     writer.Write("getIDUser");
-                    writer.Write(emailUser);
+                    writer.Write(User.emailUser);
                     string response = reader.ReadString();
 
                     if (response == "OK")
@@ -201,6 +205,17 @@ namespace SONA
         {
             MyClick();
 
+            if (currentListenMusic != null)
+            {
+                currentListenMusic.StopMusicAndDispose();
+                currentListenMusic = null;
+            }
+
+            PlaylistList playlistList = new PlaylistList(this);
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(playlistList);
+
+
         }
 
         private void btnFavorited_Click(object sender, EventArgs e)
@@ -236,8 +251,8 @@ namespace SONA
         private void btnSearch_Click(object sender, EventArgs e)
         {
             MenuClick();
-            txtSearch.Visible = true;
             btnSearch.Visible = false;
+            txtSearch.Visible = true;
             txtSearch.Focus();
         }
 
@@ -287,7 +302,7 @@ namespace SONA
                 currentListenMusic = null;
             }
 
-            ChatForm chatForm = new ChatForm(emailUser);
+            ChatForm chatForm = new ChatForm(User.emailUser);
             pnMain.Controls.Clear();
             pnMain.Controls.Add(chatForm);
         }
@@ -361,9 +376,5 @@ namespace SONA
             pnMain.Controls.Clear();
             pnMain.Controls.Add(userInfor);
         }
-    }
-    public static class User
-    {
-        public static string idUser;
     }
 }

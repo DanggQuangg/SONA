@@ -63,13 +63,13 @@ namespace SONA
                     }
                     else
                     {
-                        MessageBox.Show(response); // Hiển thị lỗi từ server
+                        MessageBox.Show("Error loading playlist image: " + response); // Hiển thị lỗi từ server
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading singer image: {ex.Message}");
+                MessageBox.Show($"Error connecting to server: {ex.Message}");
                 btnPictureAlbum.BackgroundImage = null;
             }
         }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pnMyLibrary = new Guna.UI2.WinForms.Guna2Panel();
             this.btnArtists = new Guna.UI2.WinForms.Guna2Button();
             this.btnChat = new Guna.UI2.WinForms.Guna2Button();
@@ -43,11 +42,10 @@
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnNotification = new Guna.UI2.WinForms.Guna2Button();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.pnMyLibrary.SuspendLayout();
             this.pnMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cpbUserInfor)).BeginInit();
@@ -372,32 +370,6 @@
             this.btnClose.TabIndex = 1;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Animated = true;
-            this.btnSearch.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BorderRadius = 10;
-            this.btnSearch.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnSearch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.btnSearch.CheckedState.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.CheckedState.Image = global::SONA.Properties.Resources.discoverOn;
-            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.btnSearch.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnSearch.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSearch.Image = global::SONA.Properties.Resources.SearchOFF;
-            this.btnSearch.ImageOffset = new System.Drawing.Point(0, -2);
-            this.btnSearch.ImageSize = new System.Drawing.Size(26, 26);
-            this.btnSearch.Location = new System.Drawing.Point(381, 7);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.btnSearch.Size = new System.Drawing.Size(180, 54);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.TextOffset = new System.Drawing.Point(0, -2);
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // btnHome
             // 
             this.btnHome.Animated = true;
@@ -451,9 +423,31 @@
             this.pnMain.Size = new System.Drawing.Size(1482, 919);
             this.pnMain.TabIndex = 2;
             // 
-            // guna2Elipse1
+            // btnSearch
             // 
-            this.guna2Elipse1.BorderRadius = 50;
+            this.btnSearch.Animated = true;
+            this.btnSearch.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BorderRadius = 10;
+            this.btnSearch.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnSearch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.btnSearch.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.CheckedState.Image = global::SONA.Properties.Resources.discoverOn;
+            this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.btnSearch.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSearch.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSearch.Image = global::SONA.Properties.Resources.SearchOFF;
+            this.btnSearch.ImageOffset = new System.Drawing.Point(0, -2);
+            this.btnSearch.ImageSize = new System.Drawing.Size(26, 26);
+            this.btnSearch.Location = new System.Drawing.Point(381, 7);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.btnSearch.Size = new System.Drawing.Size(180, 54);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.TextOffset = new System.Drawing.Point(0, -2);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Home
             // 
@@ -488,11 +482,10 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnSetting;
         private Guna.UI2.WinForms.Guna2Button btnNotification;
-        private Guna.UI2.WinForms.Guna2Button btnSearch;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         public System.Windows.Forms.Panel pnMain;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         public Guna.UI2.WinForms.Guna2CirclePictureBox cpbUserInfor;
+        private Guna.UI2.WinForms.Guna2Button btnSearch;
     }
 }

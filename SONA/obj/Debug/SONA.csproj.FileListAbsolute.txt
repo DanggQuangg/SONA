@@ -390,3 +390,9 @@ C:\Study\tinyProject\SONA\SONA\obj\Debug\SONA.PlaylistChoice.resources
 >>>>>>> b52b6f0e9583f84900acd09a997e0f2316df157f
 C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.PlaylistChoice.resources
 C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.PlaylistsForm.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.Playlist.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.PlaylistList.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.SongChoice.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.PlaylistForm.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.SongPlaylist.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.User.resources

@@ -41,7 +41,7 @@ namespace SONA
                     string response = reader.ReadString();
                     if (response == "OK")
                     {
-                        lbNameSinger.Text = reader.ReadString();
+                        lbNameAlbum.Text = reader.ReadString();
 
                         // Tải hình ảnh từ URL
                         string pictureUrl = reader.ReadString(); // Lấy đường dẫn URL của hình ảnh trên supabase

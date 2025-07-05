@@ -452,51 +452,113 @@ namespace SONA
         }
         private void btnPlaylist_Click(object sender, EventArgs e)
         {
-            pnlPlaylist.Controls.Clear(); // Xóa các điều khiển cũ trong panel
-            pnlPlaylist.Controls.Add(new PlaylistChoice(this));
-            try
+            pnAddPlaylist.Visible = !pnAddPlaylist.Visible; // Hiển thị hoặc ẩn panel chứa danh sách Playlist
+            if (pnAddPlaylist.Visible)
             {
-                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
-                using (NetworkStream stream = client.GetStream())
-                using (BinaryWriter writer = new BinaryWriter(stream))
-                using (BinaryReader reader = new BinaryReader(stream))
+                flpPlaylist.Controls.Clear();
+                for (int i = 0; i < 10; i++)
                 {
-                    writer.Write("getPlaylistUser");
-                    writer.Write(User.idUser);
-                    string response = reader.ReadString();
-                    if (response == "OK")
-                    {
-                        int playlistCount = reader.ReadInt32(); // Đọc số lượng Playlist
-
-                        for (int i = 0; i < playlistCount; i++)
-                        {
-                            string id_playlist = reader.ReadString();
-                            string playlistName = reader.ReadString();
-
-                            playlistID.Add(id_playlist);
-                            playlistNames.Add(playlistName);
-                        }
-                        for (int i = 0; i < playlistCount; i++)
-                        {
-                            PlaylistChoice playlist = new PlaylistChoice(h, playlistID[i], playlistNames[i], id_song);
-                            pnlPlaylist.Controls.Add(playlist);
-                        }
-                    }
-                    else
-                    {
-
-                    }
-                    pnlPlaylist.Visible = true; // Hiển thị panel chứa danh sách Playlist\
-                }
+                    PlaylistChoice playlistChoice = new PlaylistChoice();
+                    flpPlaylist.Controls.Add(playlistChoice);
+                }      
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error connecting to server: " + ex.Message);
-            }
+
+            //flpPlaylist.Controls.Clear(); // Xóa các điều khiển cũ trong panel
+            //flpPlaylist.Controls.Add(new SongChoice(this));
+            //try
+            //{
+            //    using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+            //    using (NetworkStream stream = client.GetStream())
+            //    using (BinaryWriter writer = new BinaryWriter(stream))
+            //    using (BinaryReader reader = new BinaryReader(stream))
+            //    {
+            //        writer.Write("getPlaylistUser");
+            //        writer.Write(User.idUser);
+            //        string response = reader.ReadString();
+            //        if (response == "OK")
+            //        {
+            //            int playlistCount = reader.ReadInt32(); // Đọc số lượng Playlist
+
+            //            for (int i = 0; i < playlistCount; i++)
+            //            {
+            //                string id_playlist = reader.ReadString();
+            //                string playlistName = reader.ReadString();
+
+            //                playlistID.Add(id_playlist);
+            //                playlistNames.Add(playlistName);
+            //            }
+            //            for (int i = 0; i < playlistCount; i++)
+            //            {
+            //                SongChoice playlist = new SongChoice(h, playlistID[i], playlistNames[i], id_song);
+            //                flpPlaylist.Controls.Add(playlist);
+            //            }
+            //        }
+            //        else
+            //        {
+
+            //        }
+            //        flpPlaylist.Visible = true; // Hiển thị panel chứa danh sách Playlist
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error connecting to server: " + ex.Message);
+            //}
         }
 
         private void btnOkPlaylist_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+            //    using (NetworkStream stream = client.GetStream())
+            //    using (BinaryWriter writer = new BinaryWriter(stream))
+            //    using (BinaryReader reader = new BinaryReader(stream))
+            //    {
+            //        writer.Write("createNewPlaylist");
+            //        writer.Write(User.idUser);
+            //        writer.Write(tbPlaylistName.Text);
+            //        writer.Write(id_song);
+            //        string response = reader.ReadString();
+            //        if (response == "OK")
+            //        {
+            //            MessageBox.Show("Song added to playlist successfully!");
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Error adding song to playlist: " + response);
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error connecting to server: " + ex.Message);
+            //}
+        }
+
+        //private void btnHuyPlaylist_Click(object sender, EventArgs e)
+        //{
+        //    tbPlaylistName.Text = string.Empty; // Xóa nội dung TextBox
+        //    flpPlaylist.Visible = false; // Ẩn panel chứa danh sách Playlist    
+        //}
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            pnPlaylistName.Visible = !pnPlaylistName.Visible; // Hiển thị hoặc ẩn panel nhập tên Playlist
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnPlaylistName.Visible = false; // Ẩn panel nhập tên Playlist
+        }
+
+        private void btnCloseflpPlaylist_Click(object sender, EventArgs e)
+        {
+            pnAddPlaylist.Visible = false; // Ẩn panel chứa danh sách Playlist
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
             try
             {
                 using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
@@ -504,31 +566,16 @@ namespace SONA
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    writer.Write("createNewPlaylist");
-                    writer.Write(User.idUser);
-                    writer.Write(tbPlaylistName.Text);
-                    writer.Write(id_song);
-                    string response = reader.ReadString();
-                    if (response == "OK")
-                    {
-                        MessageBox.Show("Song added to playlist successfully!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error adding song to playlist: " + response);
-                    }
+                    writer.Write("createPlaylist");
+                    writer.Write(User.emailUser);
+                    writer.Write(tbNamePlaylist.Text);
+                    writer.Write("noAvatar");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error connecting to server: " + ex.Message);
             }
-        }
-
-        private void btnHuyPlaylist_Click(object sender, EventArgs e)
-        {
-            tbPlaylistName.Text = string.Empty; // Xóa nội dung TextBox
-            pnlPlaylist.Visible = false; // Ẩn panel chứa danh sách Playlist    
         }
 
         // Hàm cập nhật thanh thời gian và lấy thời gian bài hát

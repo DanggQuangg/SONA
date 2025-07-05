@@ -18,12 +18,14 @@ namespace SONA
     {
         private Home h;
         private string idAlbum;
-        private List<string> songIds = new List<string>();
+        private List<string> songIds;
 
         public Album(Home h, string idAlbum)
         {
             this.h = h;
             this.idAlbum = idAlbum;
+            songIds = new List<string>();
+
             InitializeComponent();
             getIdSongFromAlbum();
         }
@@ -53,6 +55,7 @@ namespace SONA
                         for (int i = 0; i < count; i++)
                         {
                             SongSearch songSearch = new SongSearch(h, songIds[i], songIds);
+                            songSearch.Dock = DockStyle.Top;
                             flpSongs.Controls.Add(songSearch);
                         }
                     }

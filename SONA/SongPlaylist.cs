@@ -14,16 +14,18 @@ using System.Net.Sockets;
 
 namespace SONA
 {
-    public partial class SongSearch : UserControl
+    public partial class SongPlaylist : UserControl
     {
         private Home h;
 
         private List<string> songIds;
+        private string idPlaylist;
         private string id_song, name_song, picture_song, id_singer, name_singer;
 
-        public SongSearch(Home h, string id_song, List<string> songIds)
+        public SongPlaylist(Home h, string id_song, string idPlaylist, List<string> songIds)
         {
             this.h = h;
+            this.idPlaylist = idPlaylist;
             this.id_song = id_song;
             this.songIds = new List<string>(songIds);
 
@@ -124,7 +126,7 @@ namespace SONA
                     }
                     else
                     {
-                        MessageBox.Show("Error check songs in Favourite: " + response);
+                        MessageBox.Show(response);
                     }
                 }
             }
@@ -174,6 +176,40 @@ namespace SONA
                         {
                             MessageBox.Show(response);
                         }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to server: " + ex.Message);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+                using (NetworkStream stream = client.GetStream())
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    writer.Write("deleteSongFromPlaylist");
+                    writer.Write(idPlaylist);
+                    writer.Write(id_song);
+
+                    string response = reader.ReadString();
+                    if (response == "Exists")
+                    {
+                        btnRemove.Checked = true;
+                    }
+                    else if (response == "Nothing")
+                    {
+                        btnRemove.Checked = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show(response);
                     }
                 }
             }

@@ -396,3 +396,4 @@ C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.SongChoice.resources
 C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.PlaylistForm.resources
 C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.SongPlaylist.resources
 C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.User.resources
+C:\Users\Tnvho\Downloads\SONA\SONA\obj\Debug\SONA.HistoryForm.resources

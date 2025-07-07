@@ -48,8 +48,7 @@
             // 
             // btnPicturePlaylist
             // 
-            this.btnPicturePlaylist.BackColor = System.Drawing.Color.White;
-            this.btnPicturePlaylist.BackgroundImage = global::SONA.Properties.Resources.BasePlaylist;
+            this.btnPicturePlaylist.BackColor = System.Drawing.Color.Transparent;
             this.btnPicturePlaylist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPicturePlaylist.BorderRadius = 10;
             this.btnPicturePlaylist.Cursor = System.Windows.Forms.Cursors.Hand;

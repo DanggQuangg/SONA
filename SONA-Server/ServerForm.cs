@@ -499,6 +499,37 @@ namespace SONA_Server
                         writer.Write("Lỗi lấy id playlist: " + ex.Message);
                     }
                 }
+                else if (requestType == "getPlaylistInfor")
+                {
+                    try
+                    {
+                        int id_playlist = int.Parse(reader.ReadString());
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string query = "SELECT name_playlist, picture_playlist FROM playlists WHERE id_playlist = @id_playlist";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_playlist", id_playlist);
+                                using (var readerdb = cmd.ExecuteReader())
+                                {
+                                    if (readerdb.Read())
+                                    {
+                                        writer.Write("OK");
+                                        writer.Write(readerdb["name_playlist"].ToString());
+                                        writer.Write(readerdb["picture_playlist"].ToString());
+                                    }
+                                    else
+                                        writer.Write("Không tìm thấy playlist với ID: " + id_playlist);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi lấy thông tin playlist: " + ex.Message);
+                    }
+                }
                 else if (requestType == "addPlaylist")
                 {
                     int idUser = int.Parse(reader.ReadString());
@@ -593,7 +624,7 @@ namespace SONA_Server
                     {
                         writer.Write("Lỗi xóa playlist: " + ex.Message);
                     }
-                }    
+                }
                 else if (requestType == "getIdSongFromPlaylist")
                 {
                     try
@@ -679,31 +710,27 @@ namespace SONA_Server
                 else if (requestType == "checkSongInPlaylist")
                 {
                     int id_playlist = int.Parse(reader.ReadString());
-                    int id_song = reader.ReadInt32();
+                    int id_song = int.Parse(reader.ReadString());
 
                     try
                     {
                         using (var conn = new NpgsqlConnection(connSona))
                         {
                             conn.Open();
-
-                            // Kiểm tra xem đã có bài hát trong playlist chưa
                             string query = "SELECT COUNT(*) FROM playlist_songs WHERE id_song = @id_song AND id_playlist = @id_playlist";
-
                             using (var cmd = new NpgsqlCommand(query, conn))
                             {
                                 cmd.Parameters.AddWithValue("@id_playlist", id_playlist);
                                 cmd.Parameters.AddWithValue("@id_song", id_song);
-
-                                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                                long count = (long)cmd.ExecuteScalar();
 
                                 if (count > 0)
                                 {
-                                    writer.Write("Exists"); // đã tồn tại
+                                    writer.Write("Exists");
                                 }
                                 else
                                 {
-                                    writer.Write("Nothing"); // chưa tồn tại
+                                    writer.Write("Nothing");
                                 }
                             }
                         }
@@ -1052,6 +1079,37 @@ namespace SONA_Server
                         writer.Write("Lỗi lấy bài hát: " + ex.Message);
                     }
                 }
+                else if (requestType == "songChoice")
+                {
+                    try
+                    {
+                        int id_song = int.Parse(reader.ReadString());
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string query = "SELECT name_song, name_singer FROM songs INNER JOIN singer ON songs.id_singer = singer.id_singer WHERE id_song = @id_song";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_song", id_song);
+                                using (var readerdb = cmd.ExecuteReader())
+                                {
+                                    if (readerdb.Read())
+                                    {
+                                        writer.Write("OK");
+                                        writer.Write(readerdb["name_song"].ToString());
+                                        writer.Write(readerdb["name_singer"].ToString());
+                                    }
+                                    else
+                                        writer.Write("Không tìm thấy bài hát với ID: " + id_song);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.Write("Lỗi lấy bài hát: " + ex.Message);
+                    }
+                }
                 else if (requestType == "chatForm")
                 {
                     string email = reader.ReadString();
@@ -1163,11 +1221,29 @@ namespace SONA_Server
                 {
                     int id_user = int.Parse(reader.ReadString());
                     int id_song = int.Parse(reader.ReadString());
+
                     try
                     {
-                        if (!isSongFavouriteExsits(id_user, id_song))
-                            writer.Write("Nothing");
-                        else writer.Write("Exists");
+                        using (var conn = new NpgsqlConnection(connSona))
+                        {
+                            conn.Open();
+                            string query = "SELECT COUNT(*) FROM favourites WHERE id_user = @id_user AND id_song = @id_song";
+                            using (var cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@id_user", id_user);
+                                cmd.Parameters.AddWithValue("@id_song", id_song);
+                                long count = (long)cmd.ExecuteScalar();
+
+                                if (count > 0)
+                                {
+                                    writer.Write("Exists");
+                                }
+                                else
+                                {
+                                    writer.Write("Nothing");
+                                }
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -1714,29 +1790,6 @@ namespace SONA_Server
             }
         }
         #endregion
-
-        private bool isSongFavouriteExsits(int id_user, int id_song)
-        {
-            try
-            {
-                using (var conn = new NpgsqlConnection(connSona))
-                {
-                    conn.Open();
-                    string query = "SELECT COUNT(*) FROM favourites WHERE id_user = @id_user AND id_song = @id_song";
-                    using (var cmd = new NpgsqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id_user", id_user);
-                        cmd.Parameters.AddWithValue("@id_song", id_song);
-                        long count = (long)cmd.ExecuteScalar();
-                        return count > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
 
         // Phương thức lấy địa chỉ IP cục bộ
         private string GetLocalIPAddress()

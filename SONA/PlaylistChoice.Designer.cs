@@ -35,11 +35,12 @@
             // 
             // btnPicturePlaylist
             // 
+            this.btnPicturePlaylist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPicturePlaylist.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPicturePlaylist.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPicturePlaylist.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPicturePlaylist.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPicturePlaylist.FillColor = System.Drawing.Color.White;
+            this.btnPicturePlaylist.FillColor = System.Drawing.Color.Transparent;
             this.btnPicturePlaylist.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnPicturePlaylist.ForeColor = System.Drawing.Color.White;
             this.btnPicturePlaylist.Location = new System.Drawing.Point(3, 5);
@@ -77,6 +78,7 @@
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(34, 34);
             this.btnCheck.TabIndex = 4;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // PlaylistChoice
             // 
@@ -88,6 +90,7 @@
             this.Controls.Add(this.btnPicturePlaylist);
             this.Name = "PlaylistChoice";
             this.Size = new System.Drawing.Size(260, 59);
+            this.Load += new System.EventHandler(this.PlaylistChoice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

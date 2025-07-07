@@ -40,7 +40,7 @@ namespace SONA
                     writer.Write(idSong);
 
                     string response = reader.ReadString();
-                    if (response == "Exsists")
+                    if (response == "Exists")
                     {
                         btnAdd.Checked = true;
                     }

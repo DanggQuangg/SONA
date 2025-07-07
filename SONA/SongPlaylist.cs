@@ -18,9 +18,11 @@ namespace SONA
     {
         private Home h;
 
-        private List<string> songIds;
+        public List<string> songIds;
         private string idPlaylist;
         private string id_song, name_song, picture_song, id_singer, name_singer;
+
+        public event EventHandler<string> SongRemoved;
 
         public SongPlaylist(Home h, string id_song, string idPlaylist, List<string> songIds)
         {
@@ -199,17 +201,14 @@ namespace SONA
                     writer.Write(id_song);
 
                     string response = reader.ReadString();
-                    if (response == "Exists")
+
+                    if (response == "OK")
                     {
-                        btnRemove.Checked = true;
-                    }
-                    else if (response == "Nothing")
-                    {
-                        btnRemove.Checked = false;
+                        SongRemoved?.Invoke(this, id_song);
                     }
                     else
                     {
-                        MessageBox.Show(response);
+                        MessageBox.Show("Lỗi xóa bài hát khỏi playlist: " + response);
                     }
                 }
             }

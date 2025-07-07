@@ -75,12 +75,9 @@ namespace SONA
         {
             if (playlistForms.ContainsKey(idPlaylist))
             {
-                // Xóa UserControl khỏi flpPlaylist
                 PlaylistForm removedForm = playlistForms[idPlaylist];
                 flpPlaylist.Controls.Remove(removedForm);
                 playlistForms.Remove(idPlaylist);
-                // Làm mới danh sách playlist
-                getPlaylist();
             }
         }
 
@@ -140,9 +137,18 @@ namespace SONA
                     {
                         writer.Write("noAvatar");
                     }
-                    pnAddPlaylist.Visible = false;
+                    string response = reader.ReadString();
+                    if (response == "OK")
+                    {
+                        getPlaylist();
+                        pnAddPlaylist.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error adding playlist: " + response);
+                    }
                 }
-                getPlaylist();
+                
             }
             catch (Exception ex)
             {

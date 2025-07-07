@@ -17,12 +17,6 @@ using System.Windows.Forms;
 
 namespace SONA
 {
-    public static class User
-    {
-        public static string idUser;
-        public static string emailUser;
-    }
-
     public partial class Home : UserControl
     {
         private SONA S;
@@ -376,5 +370,10 @@ namespace SONA
             pnMain.Controls.Clear();
             pnMain.Controls.Add(userInfor);
         }
+    }
+    public static class User
+    {
+        public static string idUser;
+        public static string emailUser;
     }
 }

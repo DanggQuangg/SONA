@@ -19,6 +19,8 @@ namespace SONA
         private Home h;
         private string idPlaylist, namePlaylist, picturePlaylist;
         private List<string> songIds;
+        private List<string> songInPlaylist;
+        private Dictionary<string, SongPlaylist> songPlaylists;
 
         public Playlist(Home h, string idPlaylist, string namePlaylist, string picturePlaylist)
         {
@@ -26,11 +28,14 @@ namespace SONA
             this.idPlaylist = idPlaylist;
             this.namePlaylist = namePlaylist;
             this.picturePlaylist = picturePlaylist;
+
             songIds = new List<string>();
+            songInPlaylist = new List<string>();
+            songPlaylists = new Dictionary<string, SongPlaylist>();
 
             InitializeComponent();
             getIdSongFromPlaylist();
-            
+
             AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
             autoSource.AddRange(h.songNames.ToArray());
             txtSearch.AutoCompleteCustomSource = autoSource;
@@ -63,6 +68,7 @@ namespace SONA
                             SongChoice songChoice = new SongChoice(h, idPlaylist, songId);
                             flpListSong.Controls.Add(songChoice);
                         }
+                        songIds.Clear();
                     }
                 }
             }
@@ -77,6 +83,7 @@ namespace SONA
             try
             {
                 flpSongs.Controls.Clear();
+                songInPlaylist.Clear();
 
                 using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
                 using (NetworkStream stream = client.GetStream())
@@ -93,12 +100,16 @@ namespace SONA
                         for (int i = 0; i < count; i++)
                         {
                             string id_song = reader.ReadString();
-                            songIds.Add(id_song);
+                            songInPlaylist.Add(id_song);
+
                         }
-                        foreach (var songId in songIds)
+                        foreach (var songId in songInPlaylist)
                         {
-                            SongPlaylist songPlaylist = new SongPlaylist(h, songId, idPlaylist, songIds);
+                            SongPlaylist songPlaylist = new SongPlaylist(h, songId, idPlaylist, songInPlaylist);
+                            songPlaylist.SongRemoved += SongPlaylist_SongRemoved;
+                            
                             flpSongs.Controls.Add(songPlaylist);
+                            songPlaylists[songId] = songPlaylist;
                         }
                     }
                     else
@@ -110,6 +121,16 @@ namespace SONA
             catch (Exception ex)
             {
                 MessageBox.Show("Error connecting to server: " + ex.Message);
+            }
+        }
+
+        private void SongPlaylist_SongRemoved(object sender, string idSong)
+        {
+            if (songPlaylists.ContainsKey(idSong))
+            {
+                SongPlaylist removedSong = songPlaylists[idSong];
+                flpSongs.Controls.Remove(removedSong);
+                songPlaylists.Remove(idSong);
             }
         }
 
@@ -147,7 +168,7 @@ namespace SONA
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string searchText = txtSearch.Text;
+                string searchText = txtSearch.Text.Trim();
                 flpListSong.Controls.Clear();
 
                 try
@@ -176,6 +197,7 @@ namespace SONA
                                 SongChoice songChoice = new SongChoice(h, idPlaylist, songId);
                                 flpListSong.Controls.Add(songChoice);
                             }
+                            songIds.Clear();
                         }
                     }
                 }
@@ -188,14 +210,55 @@ namespace SONA
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            pnAddSong.Visible = true;
             getIdAllSong();
+            pnAddSong.Visible = true;
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            songInPlaylist.Clear();
+
+            try
+            {
+                using (TcpClient client = new TcpClient(IPAddressServer.serverIP, 5000))
+                using (NetworkStream stream = client.GetStream())
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    writer.Write("getIdSongFromPlaylist");
+                    writer.Write(idPlaylist);
+
+                    string response = reader.ReadString();
+                    if (response == "OK")
+                    {
+                        int count = reader.ReadInt32();
+                        for (int i = 0; i < count; i++)
+                        {
+                            string id_song = reader.ReadString();
+                            songInPlaylist.Add(id_song);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(response);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to server: " + ex.Message);
+            }
+
+            ListenMusic listenMusic = new ListenMusic(h, songInPlaylist[0], songInPlaylist);
+            h.pnMain.Controls.Clear();
+            h.pnMain.Controls.Add(listenMusic);
+            h.SetCurrentListenMusic(listenMusic);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            pnAddSong.Visible = false;
             getIdSongFromPlaylist();
+            pnAddSong.Visible = false;  
         }
 
         private void btnClose_Click(object sender, EventArgs e)

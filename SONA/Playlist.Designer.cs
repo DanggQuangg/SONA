@@ -94,6 +94,7 @@
             // 
             this.btnPlay.Animated = true;
             this.btnPlay.BorderRadius = 5;
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPlay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPlay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -107,11 +108,13 @@
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(55, 50);
             this.btnPlay.TabIndex = 1;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // btnShuffle
             // 
             this.btnShuffle.Animated = true;
             this.btnShuffle.BorderRadius = 5;
+            this.btnShuffle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShuffle.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnShuffle.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnShuffle.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -130,6 +133,7 @@
             // 
             this.btnUpload.Animated = true;
             this.btnUpload.BorderRadius = 5;
+            this.btnUpload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUpload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUpload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -148,6 +152,7 @@
             // 
             this.btnAdd.Animated = true;
             this.btnAdd.BorderRadius = 5;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -167,6 +172,7 @@
             // 
             this.btnDownload.Animated = true;
             this.btnDownload.BorderRadius = 5;
+            this.btnDownload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDownload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDownload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDownload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -278,7 +284,6 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(552, 54);
             this.txtSearch.TabIndex = 70;
-            this.txtSearch.Visible = false;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnCancel
@@ -286,6 +291,7 @@
             this.btnCancel.Animated = true;
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel.BorderRadius = 10;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
@@ -311,6 +317,7 @@
             this.btnOk.Animated = true;
             this.btnOk.BackColor = System.Drawing.Color.Transparent;
             this.btnOk.BorderRadius = 8;
+            this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOk.FillColor = System.Drawing.Color.White;
             this.btnOk.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnOk.ForeColor = System.Drawing.Color.Black;
@@ -328,6 +335,7 @@
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClose.BorderRadius = 15;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FillColor = System.Drawing.Color.Transparent;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.Black;
@@ -341,6 +349,7 @@
             // 
             // flpSongs
             // 
+            this.flpSongs.AutoScroll = true;
             this.flpSongs.Location = new System.Drawing.Point(25, 209);
             this.flpSongs.Name = "flpSongs";
             this.flpSongs.Size = new System.Drawing.Size(995, 707);

@@ -118,6 +118,7 @@
             this.tbEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.tbEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbEmail.Location = new System.Drawing.Point(547, 328);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
@@ -126,6 +127,7 @@
             this.tbEmail.SelectedText = "";
             this.tbEmail.Size = new System.Drawing.Size(470, 58);
             this.tbEmail.TabIndex = 50;
+            this.tbEmail.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // tbSdt
             // 
@@ -140,6 +142,7 @@
             this.tbSdt.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.tbSdt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSdt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbSdt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.tbSdt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSdt.Location = new System.Drawing.Point(25, 328);
             this.tbSdt.Margin = new System.Windows.Forms.Padding(4);
@@ -148,6 +151,7 @@
             this.tbSdt.SelectedText = "";
             this.tbSdt.Size = new System.Drawing.Size(471, 58);
             this.tbSdt.TabIndex = 50;
+            this.tbSdt.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // tbNameUser
             // 
@@ -162,6 +166,7 @@
             this.tbNameUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.tbNameUser.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbNameUser.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbNameUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.tbNameUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbNameUser.Location = new System.Drawing.Point(26, 134);
             this.tbNameUser.Margin = new System.Windows.Forms.Padding(4);
@@ -170,6 +175,7 @@
             this.tbNameUser.SelectedText = "";
             this.tbNameUser.Size = new System.Drawing.Size(992, 58);
             this.tbNameUser.TabIndex = 49;
+            this.tbNameUser.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // tbConfirmPass
             // 
@@ -184,6 +190,7 @@
             this.tbConfirmPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.tbConfirmPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbConfirmPass.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbConfirmPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.tbConfirmPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbConfirmPass.Location = new System.Drawing.Point(547, 521);
             this.tbConfirmPass.Margin = new System.Windows.Forms.Padding(4);
@@ -192,6 +199,7 @@
             this.tbConfirmPass.SelectedText = "";
             this.tbConfirmPass.Size = new System.Drawing.Size(471, 58);
             this.tbConfirmPass.TabIndex = 48;
+            this.tbConfirmPass.TextOffset = new System.Drawing.Point(5, 0);
             this.tbConfirmPass.UseSystemPasswordChar = true;
             // 
             // tbPass
@@ -207,6 +215,7 @@
             this.tbPass.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.tbPass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPass.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.tbPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPass.Location = new System.Drawing.Point(26, 521);
             this.tbPass.Margin = new System.Windows.Forms.Padding(4);
@@ -215,6 +224,7 @@
             this.tbPass.SelectedText = "";
             this.tbPass.Size = new System.Drawing.Size(471, 58);
             this.tbPass.TabIndex = 47;
+            this.tbPass.TextOffset = new System.Drawing.Point(5, 0);
             this.tbPass.UseSystemPasswordChar = true;
             // 
             // label6

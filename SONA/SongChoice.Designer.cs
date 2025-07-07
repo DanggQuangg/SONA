@@ -85,7 +85,7 @@
             this.Controls.Add(this.lblNameSong);
             this.Controls.Add(this.btnAdd);
             this.Name = "SongChoice";
-            this.Size = new System.Drawing.Size(560, 54);
+            this.Size = new System.Drawing.Size(469, 54);
             this.Load += new System.EventHandler(this.SongChoice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
